@@ -24,8 +24,8 @@
 // The position of the various semaphores that we are using in the
 // "semaphore array" that semget gets
 #define SEMAPHORE_MUTEX      0
-#define SEMAPHORE_AtoB	 1
-#define SEMAPHORE_BtoA  2
+#define SEMAPHORE_TOA	 1
+#define SEMAPHORE_TOB  2
 #define NUMBER_OF_SEMAPHORES 3
 
 // To distinguish baboon crossing to A from baboon corssing to B when forking
@@ -100,8 +100,8 @@ int main(int argc, char *argv[]) {
 	// Set up our semaphore values according to Tekin's solutions
 	unsigned short semaphore_init_values[NUMBER_OF_SEMAPHORES];
 	semaphore_init_values[SEMAPHORE_MUTEX] = 1;
-	semaphore_init_values[SEMAPHORE_AtoB] = 0;
-	semaphore_init_values[SEMAPHORE_BtoA] = 0;
+	semaphore_init_values[SEMAPHORE_TOA] = 0;
+	semaphore_init_values[SEMAPHORE_TOB] = 0;
 	semaphore_values.array = semaphore_init_values;
 
 	// Actually make the semaphores now
@@ -126,13 +126,13 @@ int main(int argc, char *argv[]) {
 	int i = 0;
 	while(argv[1][i] != 0) {
 		switch (argv[1][i]) {
-			case 'w':
-			case 'W':
+			case 'a':
+			case 'A':
 				baboon_fork(BABOON_TOA);
 				break;
 
-			case 'e':
-			case 'E':
+			case 'b':
+			case 'B':
 				baboon_fork(BABOON_TOB);
 				break;
 
@@ -148,7 +148,7 @@ int main(int argc, char *argv[]) {
 
 	}
 
-	// We need to wait until all the car process exit
+	// We need to wait until all the baboon processes exit
 	int j;
 	for (j = 0; j < i; j++) {
 		wait(NULL);
@@ -188,7 +188,7 @@ void baboon_fork(int direction_a_or_b) {
 		} else if (direction_a_or_b == BABOON_TOA) {
 			toAProcess();
 		} else {
-			printf("!!! Invalid Car Type!\n");
+			printf("!!! Invalid Baboon Process Type !!!\n");
 			exit(EXIT_FAILURE);
 		}
 	} else {
@@ -218,7 +218,7 @@ void debug_print_shared(struct shared_variable_struct *shared){
 }
 
 void toBProcess(void) {
-	printf("*** PID: %d: I am an East Bound Car!\n", getpid());
+	printf("*** PID: %d: I am a Baboon crossing to B!\n", getpid());
 
 	// Get the semaphores and shared memory
 	int semid = get_semid((key_t)SEMAPHORE_KEY);
@@ -226,9 +226,9 @@ void toBProcess(void) {
 	struct shared_variable_struct * shared_variables = shmat(shmid, 0, 0);
 
 	//Implementing algorithm in solutions "verbatim", with some minor changes I have noted with *** in comments
-	printf("--- PID: %d: E: Waiting on Mutex.\n", getpid());
+	printf("--- PID: %d: ToBProcess: Waiting on Mutex.\n", getpid());
 	semaphore_wait(semid, SEMAPHORE_MUTEX);
-	printf("--- PID: %d: E: Passed Mutex.\n", getpid());
+	printf("--- PID: %d: ToBProcess: Passed Mutex.\n", getpid());
 
 	if ((shared_variables->XingDirection == DirToB ||
 			shared_variables->XingDirection == None) &&
@@ -237,51 +237,51 @@ void toBProcess(void) {
 			(shared_variables->XedCount + shared_variables->XingCount < 5 || shared_variables->toAWaitCount == 0) &&
 			// *** We also need to check if any EastBoundCars are waiting, because if they are, this car should wait behind them, not skip them all
 			shared_variables->toBWaitCount == 0) {
-		printf("--- PID: %d: E: It's my turn -- Going to Cross.\n", getpid());
+		printf("--- PID: %d: ToBProcess: It's my turn -- Going to Cross.\n", getpid());
 		shared_variables->XingDirection = DirToB;
 		shared_variables->XingCount++;
 
 		debug_print_shared(shared_variables);
-		printf("--- PID: %d: E: Signaling MUTEX.\n", getpid());
+		printf("--- PID: %d: ToBProcess: Signaling MUTEX.\n", getpid());
 		semaphore_signal(semid, SEMAPHORE_MUTEX);
 	} else {
-		printf("--- PID: %d: E: I have to wait.\n", getpid());
+		printf("--- PID: %d: ToBProcess: I have to wait.\n", getpid());
 		shared_variables->toBWaitCount++;
 		debug_print_shared(shared_variables);
-		printf("--- PID: %d: E: Signaling Mutex.\n", getpid());
+		printf("--- PID: %d: ToBProcess: Signaling Mutex.\n", getpid());
 		semaphore_signal(semid, SEMAPHORE_MUTEX);
-		semaphore_wait(semid, SEMAPHORE_BtoA);
-		printf("--- PID: %d: E: Was waiting, now I'm signaled.\n", getpid());
+		semaphore_wait(semid, SEMAPHORE_TOB);
+		printf("--- PID: %d: ToBProcess: Was waiting, now I'm signaled.\n", getpid());
 		shared_variables->toBWaitCount--;
 		shared_variables->XingCount++;
 		shared_variables->XingDirection = DirToB;
 
 		debug_print_shared(shared_variables);
 
-		// *** I also have cars here check to see if anyone is waiting behind them, and signal those behind them
-		// *** This is necessary because otherwise only one car would be on the bridge at a time.
+		// *** Baboons check to see if anyone is waiting behind them, and signal those behind them
+		// *** This is necessary because otherwise only one baboon process would be on the rope at a time.
 		if(shared_variables->toBWaitCount > 0 && shared_variables->XingCount < 4 &&
 			(shared_variables->XedCount + shared_variables->XingCount < 5 || shared_variables->toAWaitCount == 0)){
-			printf("--- PID: %d: E: Signaling an East car behind me.\n", getpid());
-			printf("--- PID: %d: E: Going to cross.\n", getpid());
-			semaphore_signal(semid, SEMAPHORE_BtoA);
-			// *** We do not need to signal mutex because it is "passed on" to the signaled car behind this one
+			printf("--- PID: %d: ToBProcess: Signaling another Baboon crossing to B behind me.\n", getpid());
+			printf("--- PID: %d: ToBProcess: Going to cross.\n", getpid());
+			semaphore_signal(semid, SEMAPHORE_TOB);
+			// *** We do not need to signal mutex because it is "passed on" to the signaled baboon behind this one
 		}else{
-			printf("--- PID: %d: E: Going to cross.\n", getpid());
+			printf("--- PID: %d: ToBProcess: Going to cross.\n", getpid());
 			debug_print_shared(shared_variables);
-			printf("--- PID: %d: E: Signaling MUTEX.\n", getpid());
+			printf("--- PID: %d: ToBProcess: Signaling MUTEX.\n", getpid());
 			semaphore_signal(semid, SEMAPHORE_MUTEX);
 		}
 	}
 
-	printf("@@@ PID: %d: E: I am crossing the bridge!.\n", getpid());
-	//It takes some time to cross the bridge
+	printf("@@@ PID: %d: ToBProcess: I am crossing the rope!.\n", getpid());
+	//It takes some time to cross the rope
 	stall(CROSS_ROPE_STALL_TIME);
 
 	// Everything below is exactly the algorithm in the assignment 2 solution
-	printf("@@@ PID: %d: E: Crossed the bridge -- Waiting for MUTEX!.\n", getpid());
+	printf("@@@ PID: %d: ToBProcess: Crossed the rope -- Waiting for MUTEX!.\n", getpid());
 	semaphore_wait(semid, SEMAPHORE_MUTEX);
-	printf("@@@ PID: %d: E: Passed MUTEX!.\n", getpid());
+	printf("@@@ PID: %d: ToBProcess: Passed MUTEX!.\n", getpid());
 	shared_variables->XedCount++;
 	shared_variables->XingCount--;
 
@@ -289,28 +289,28 @@ void toBProcess(void) {
 		(shared_variables->XingCount + shared_variables->XedCount < 5 ||
 		   shared_variables->toAWaitCount == 0)){
 		debug_print_shared(shared_variables);
-		printf("@@@ PID: %d: E: Signaling a waiting east bound car!.\n", getpid());
-		semaphore_signal(semid,SEMAPHORE_BtoA);
+		printf("@@@ PID: %d: ToBProcess: Signaling a waiting baboon wanting to cross to B process!.\n", getpid());
+		semaphore_signal(semid,SEMAPHORE_TOB);
 	}else if(shared_variables->XingCount == 0 && shared_variables->toAWaitCount != 0
 				&& (shared_variables->toBWaitCount==0 ||
 					shared_variables->XedCount + shared_variables->XingCount >= 5)){
-		printf("@@@ PID: %d: E: Changing direction to west bound and signaling a waiting west car.\n", getpid());
+		printf("@@@ PID: %d: ToBProcess: Changing direction to DirToA and signaling a waiting ToAProcess baboon.\n", getpid());
 		shared_variables->XingDirection = DirToA;
 		shared_variables->XedCount = 0;
 		debug_print_shared(shared_variables);
-		semaphore_signal(semid, SEMAPHORE_AtoB);
+		semaphore_signal(semid, SEMAPHORE_TOA);
 	}else if(shared_variables->XingCount == 0 && shared_variables->toBWaitCount == 0
 				&& shared_variables->toAWaitCount == 0){
-		printf("@@@ PID: %d: E: Setting XingDirection to None -- no one is waiting.\n", getpid());
+		printf("@@@ PID: %d: ToBProcess: Setting XingDirection to None -- no one is waiting.\n", getpid());
 		shared_variables->XingDirection = None;
 		shared_variables->XedCount = 0;
 
 		debug_print_shared(shared_variables);
-		printf("@@@ PID: %d: E: Signaling Mutex.\n", getpid());
+		printf("@@@ PID: %d: ToBProcess: Signaling Mutex.\n", getpid());
 		semaphore_signal(semid, SEMAPHORE_MUTEX);
 	}else{
 		debug_print_shared(shared_variables);
-		printf("@@@ PID: %d: E: Signaling Mutex.\n", getpid());
+		printf("@@@ PID: %d: ToBProcess: Signaling Mutex.\n", getpid());
 		semaphore_signal(semid, SEMAPHORE_MUTEX);
 	}
 
@@ -323,7 +323,7 @@ void toBProcess(void) {
 }
 
 void toAProcess(void) {
-	printf("*** PID: %d: I am a West Bound Car!\n", getpid());
+	printf("*** PID: %d: I am a Baboon crossing to A!\n", getpid());
 
 	// Get the semaphores and shared memory
 	int semid = get_semid((key_t)SEMAPHORE_KEY);
@@ -332,63 +332,63 @@ void toAProcess(void) {
 
 	//Implementing algorithm in solutions "verbatim", with some minor changes I have noted with *** in comments
 
-	printf("--- PID: %d: W: Waiting on Mutex.\n", getpid());
+	printf("--- PID: %d: ToAProcess: Waiting on Mutex.\n", getpid());
 	semaphore_wait(semid, SEMAPHORE_MUTEX);
-	printf("--- PID: %d: W: Passed Mutex.\n", getpid());
+	printf("--- PID: %d: ToAProcess: Passed Mutex.\n", getpid());
 	debug_print_shared(shared_variables);
 
 	if ((shared_variables->XingDirection == DirToA ||
 			shared_variables->XingDirection == None) &&
 			shared_variables->XingCount < 4 &&
-			// *** I added that even if 5 East cars have gone, this car may still go if no east bound ones are waiting
+			// If 5 Baboons crossing to A have gone, this car may still go if no ToBProcesses are waiting
 			(shared_variables->XedCount + shared_variables->XingCount < 5 || shared_variables->toBWaitCount == 0) &&
-			// *** We also need to check if any WestBoundCars are waiting, because if they are, this car should wait behind them, not skip them all
+			// *** We also need to check if any ToAProcesses are waiting, because if they are, this baboon should wait behind them, not skip them all
 			shared_variables->toAWaitCount == 0) {
-		printf("--- PID: %d: W: It's my turn -- Going to Cross.\n", getpid());
+		printf("--- PID: %d: ToAProcess: It's my turn -- Going to Cross.\n", getpid());
 		shared_variables->XingDirection = DirToA;
 		shared_variables->XingCount++;
 		debug_print_shared(shared_variables);
-		printf("--- PID: %d: W: Signaling MUTEX.\n", getpid());
+		printf("--- PID: %d: ToAProcess: Signaling MUTEX.\n", getpid());
 		semaphore_signal(semid, SEMAPHORE_MUTEX);
 	} else {
-		printf("--- PID: %d: W: I have to wait.\n", getpid());
+		printf("--- PID: %d: ToAProcess: I have to wait.\n", getpid());
 		shared_variables->toAWaitCount++;
 		debug_print_shared(shared_variables);
-		printf("--- PID: %d: W: Signaling Mutex.\n", getpid());
+		printf("--- PID: %d: ToAProcess: Signaling Mutex.\n", getpid());
 		semaphore_signal(semid, SEMAPHORE_MUTEX);
-		semaphore_wait(semid, SEMAPHORE_AtoB);
-		printf("--- PID: %d: W: Was waiting, now I'm signaled.\n", getpid());
+		semaphore_wait(semid, SEMAPHORE_TOA);
+		printf("--- PID: %d: ToAProcess: Was waiting, now I'm signaled.\n", getpid());
 		shared_variables->toAWaitCount--;
 		shared_variables->XingCount++;
 		shared_variables->XingDirection = DirToA;
 
 		debug_print_shared(shared_variables);
 
-		// *** I also have cars here check to see if anyone is waiting behind them, and signal those behind them
-		// *** This is necessary because otherwise only one car would be on the bridge at a time.
+		// *** Baboons check to see if anyone is waiting behind them, and signal those behind them
+		// *** This is necessary because otherwise only one baboon would be on the rope at a time. Symmetrical with logic in ToBProcess
 		if(shared_variables->toAWaitCount > 0 && shared_variables->XingCount < 4 &&
 			(shared_variables->XedCount + shared_variables->XingCount < 5 || shared_variables->toBWaitCount == 0)){
-			printf("--- PID: %d: W: Going to cross.\n", getpid());
-			printf("--- PID: %d: W: Signalling a West car behind me.\n", getpid());
-			semaphore_signal(semid, SEMAPHORE_AtoB);
-			// *** We do not need to signal mutex because it is "passed on" to the signaled car behind this one
+			printf("--- PID: %d: ToAProcess: Going to cross.\n", getpid());
+			printf("--- PID: %d: ToAProcess: Signalling a ToAProcess behind me.\n", getpid());
+			semaphore_signal(semid, SEMAPHORE_TOA);
+			// *** We do not need to signal mutex because it is "passed on" to the signaled baboon behind this one
 		}else{
-			printf("--- PID: %d: W: Going to cross.\n", getpid());
+			printf("--- PID: %d: ToAProcess: Going to cross.\n", getpid());
 			debug_print_shared(shared_variables);
-			printf("--- PID: %d: W: Signaling MUTEX.\n", getpid());
+			printf("--- PID: %d: ToAProcess: Signaling MUTEX.\n", getpid());
 			semaphore_signal(semid, SEMAPHORE_MUTEX);
 		}
 	}
 
-	printf("@@@ PID: %d: W: I am crossing the bridge!.\n", getpid());
+	printf("@@@ PID: %d: ToAProcess: I am crossing the rope!.\n", getpid());
 	//It takes some time to cross the bridge
 	stall(CROSS_ROPE_STALL_TIME);
 
 	//Everything here and below is the same as the solution to assignment 2
-	printf("@@@ PID: %d: W: Crossed -- Waiting for MUTEX!.\n", getpid());
+	printf("@@@ PID: %d: ToAProcess: Crossed -- Waiting for MUTEX!.\n", getpid());
 	semaphore_wait(semid, SEMAPHORE_MUTEX);
 
-	printf("@@@ PID: %d: W: Passed MUTEX!.\n", getpid());
+	printf("@@@ PID: %d: ToAProcess: Passed MUTEX!.\n", getpid());
 	shared_variables->XedCount++;
 	shared_variables->XingCount--;
 
@@ -396,29 +396,29 @@ void toAProcess(void) {
 		(shared_variables->XingCount + shared_variables->XedCount < 5 ||
 		   shared_variables->toBWaitCount == 0)){
 		debug_print_shared(shared_variables);
-		printf("@@@ PID: %d: W: Signaling a waiting west bound car!.\n", getpid());
-		semaphore_signal(semid,SEMAPHORE_AtoB);
+		printf("@@@ PID: %d: ToAProcess: Signaling a waiting ToAProcess!.\n", getpid());
+		semaphore_signal(semid,SEMAPHORE_TOA);
 	}else if(shared_variables->XingCount == 0 && shared_variables->toBWaitCount != 0
 				&& (shared_variables->toAWaitCount==0 ||
 					shared_variables->XedCount + shared_variables->XingCount >= 5)){
-		printf("@@@ PID: %d: W: Changing direction to east.\n", getpid());
+		printf("@@@ PID: %d: ToAProcess: Changing direction to DirToB.\n", getpid());
 		shared_variables->XingDirection = DirToB;
 		shared_variables->XedCount = 0;
 		debug_print_shared(shared_variables);
-		printf("@@@ PID: %d: W: Signaling a waiting east car.\n", getpid());
-		semaphore_signal(semid, SEMAPHORE_BtoA);
+		printf("@@@ PID: %d: ToAProcess: Signaling a waiting ToBProcess.\n", getpid());
+		semaphore_signal(semid, SEMAPHORE_TOB);
 	}else if(shared_variables->XingCount == 0 && shared_variables->toBWaitCount == 0
 				&& shared_variables->toAWaitCount == 0){
-		printf("@@@ PID: %d: W: Setting XingDirection to None -- no one is waiting.\n", getpid());
+		printf("@@@ PID: %d: ToAProcess: Setting XingDirection to None -- no one is waiting.\n", getpid());
 		shared_variables->XingDirection = None;
 		shared_variables->XedCount = 0;
 
 		debug_print_shared(shared_variables);
-		printf("@@@ PID: %d: W: Signaling Mutex.\n", getpid());
+		printf("@@@ PID: %d: ToAProcess: Signaling Mutex.\n", getpid());
 		semaphore_signal(semid, SEMAPHORE_MUTEX);
 	}else{
 		debug_print_shared(shared_variables);
-		printf("@@@ PID: %d: W: Signaling Mutex.\n", getpid());
+		printf("@@@ PID: %d: ToAProcess: Signaling Mutex.\n", getpid());
 		semaphore_signal(semid, SEMAPHORE_MUTEX);
 	}
 	if (shmdt(shared_variables) == -1) {
@@ -436,6 +436,8 @@ void stall(int iterations){
 		;
 	}
 }
+// The following comments and code are replicated from
+// the original submission by George Hodulik - gmh73@case.edu
 
 // These two functions are wrapper functions for the System-V
 // style semaphores that were talked about in class.
