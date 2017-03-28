@@ -85,7 +85,7 @@ int main(int argc, char *argv[]) {
 	// For reference, give the user our PID
 	printf("*** Hello World! I am %d.\n", getpid());
 
-	// The input of the executable file is of the for eewwweeewwee (not case-sensitive) where e is an east bound car and w is a west bound car
+	// The input of the executable file is of the for aabbbbaaaaabbababaa (not case-sensitive) where a is a baboon crossing to a and b is a baboon crossing to b
 	if (argc != 2) {
 		printf("!!! PID: %d: Please run this program with one argument, the order of the baboons crossing to a or b that you want to cross the rope.\n", getpid());
 		exit(EXIT_FAILURE);
@@ -233,9 +233,9 @@ void toBProcess(void) {
 	if ((shared_variables->XingDirection == DirToB ||
 			shared_variables->XingDirection == None) &&
 			shared_variables->XingCount < 4 &&
-			// *** I added that even if 5 East cars have gone, this car may still go if no west bound ones are waiting
-			(shared_variables->XedCount + shared_variables->XingCount < 5 || shared_variables->toAWaitCount == 0) &&
-			// *** We also need to check if any EastBoundCars are waiting, because if they are, this car should wait behind them, not skip them all
+			// If 10 baboons have crossed, this baboon may still cross if no ToAProcesses are waiting
+			(shared_variables->XedCount + shared_variables->XingCount < 10 || shared_variables->toAWaitCount == 0) &&
+			// *** We also need to check if any ToBProcesses are waiting, because if they are, this process should wait behind them, not skip them all
 			shared_variables->toBWaitCount == 0) {
 		printf("--- PID: %d: ToBProcess: It's my turn -- Going to Cross.\n", getpid());
 		shared_variables->XingDirection = DirToB;
@@ -261,7 +261,7 @@ void toBProcess(void) {
 		// *** Baboons check to see if anyone is waiting behind them, and signal those behind them
 		// *** This is necessary because otherwise only one baboon process would be on the rope at a time.
 		if(shared_variables->toBWaitCount > 0 && shared_variables->XingCount < 4 &&
-			(shared_variables->XedCount + shared_variables->XingCount < 5 || shared_variables->toAWaitCount == 0)){
+			(shared_variables->XedCount + shared_variables->XingCount < 10 || shared_variables->toAWaitCount == 0)){
 			printf("--- PID: %d: ToBProcess: Signaling another Baboon crossing to B behind me.\n", getpid());
 			printf("--- PID: %d: ToBProcess: Going to cross.\n", getpid());
 			semaphore_signal(semid, SEMAPHORE_TOB);
@@ -286,14 +286,14 @@ void toBProcess(void) {
 	shared_variables->XingCount--;
 
 	if(shared_variables->toBWaitCount != 0 &&
-		(shared_variables->XingCount + shared_variables->XedCount < 5 ||
+		(shared_variables->XingCount + shared_variables->XedCount < 10 ||
 		   shared_variables->toAWaitCount == 0)){
 		debug_print_shared(shared_variables);
 		printf("@@@ PID: %d: ToBProcess: Signaling a waiting baboon wanting to cross to B process!.\n", getpid());
 		semaphore_signal(semid,SEMAPHORE_TOB);
 	}else if(shared_variables->XingCount == 0 && shared_variables->toAWaitCount != 0
 				&& (shared_variables->toBWaitCount==0 ||
-					shared_variables->XedCount + shared_variables->XingCount >= 5)){
+					shared_variables->XedCount + shared_variables->XingCount >= 10)){
 		printf("@@@ PID: %d: ToBProcess: Changing direction to DirToA and signaling a waiting ToAProcess baboon.\n", getpid());
 		shared_variables->XingDirection = DirToA;
 		shared_variables->XedCount = 0;
@@ -340,8 +340,8 @@ void toAProcess(void) {
 	if ((shared_variables->XingDirection == DirToA ||
 			shared_variables->XingDirection == None) &&
 			shared_variables->XingCount < 4 &&
-			// If 5 Baboons crossing to A have gone, this car may still go if no ToBProcesses are waiting
-			(shared_variables->XedCount + shared_variables->XingCount < 5 || shared_variables->toBWaitCount == 0) &&
+			// If 5 Baboons crossing to A have gone, this baboon may still go if no ToBProcesses are waiting
+			(shared_variables->XedCount + shared_variables->XingCount < 10 || shared_variables->toBWaitCount == 0) &&
 			// *** We also need to check if any ToAProcesses are waiting, because if they are, this baboon should wait behind them, not skip them all
 			shared_variables->toAWaitCount == 0) {
 		printf("--- PID: %d: ToAProcess: It's my turn -- Going to Cross.\n", getpid());
@@ -367,7 +367,7 @@ void toAProcess(void) {
 		// *** Baboons check to see if anyone is waiting behind them, and signal those behind them
 		// *** This is necessary because otherwise only one baboon would be on the rope at a time. Symmetrical with logic in ToBProcess
 		if(shared_variables->toAWaitCount > 0 && shared_variables->XingCount < 4 &&
-			(shared_variables->XedCount + shared_variables->XingCount < 5 || shared_variables->toBWaitCount == 0)){
+			(shared_variables->XedCount + shared_variables->XingCount < 10 || shared_variables->toBWaitCount == 0)){
 			printf("--- PID: %d: ToAProcess: Going to cross.\n", getpid());
 			printf("--- PID: %d: ToAProcess: Signalling a ToAProcess behind me.\n", getpid());
 			semaphore_signal(semid, SEMAPHORE_TOA);
@@ -393,14 +393,14 @@ void toAProcess(void) {
 	shared_variables->XingCount--;
 
 	if(shared_variables->toAWaitCount != 0 &&
-		(shared_variables->XingCount + shared_variables->XedCount < 5 ||
+		(shared_variables->XingCount + shared_variables->XedCount < 10 ||
 		   shared_variables->toBWaitCount == 0)){
 		debug_print_shared(shared_variables);
 		printf("@@@ PID: %d: ToAProcess: Signaling a waiting ToAProcess!.\n", getpid());
 		semaphore_signal(semid,SEMAPHORE_TOA);
 	}else if(shared_variables->XingCount == 0 && shared_variables->toBWaitCount != 0
 				&& (shared_variables->toAWaitCount==0 ||
-					shared_variables->XedCount + shared_variables->XingCount >= 5)){
+					shared_variables->XedCount + shared_variables->XingCount >= 10)){
 		printf("@@@ PID: %d: ToAProcess: Changing direction to DirToB.\n", getpid());
 		shared_variables->XingDirection = DirToB;
 		shared_variables->XedCount = 0;
