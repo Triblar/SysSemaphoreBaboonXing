@@ -1,0 +1,1131 @@
+*** Hello World! I am 8070.
+*** PID: 8070: I have been called with the following argument: `aaabbbbbaaabbababaa`.
+*** PID: 8071: I am a Baboon crossing to A!
+--- PID: 8071: ToAProcess: Waiting on Mutex.
+--- PID: 8071: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8071: XingCount = 0, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 0
+--- PID: 8071: ToAProcess: It's my turn -- Going to Cross.
+	 Shared Variables status at PID 8071: XingCount = 1, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 2
+--- PID: 8071: ToAProcess: Signaling MUTEX.
+@@@ PID: 8071: ToAProcess: I am crossing the rope!.
+@@@ PID: 8071: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8071: ToAProcess: Passed MUTEX!.
+@@@ PID: 8071: ToAProcess: Setting XingDirection to None -- no one is waiting.
+	 Shared Variables status at PID 8071: XingCount = 0, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 0
+@@@ PID: 8071: ToAProcess: Signaling Mutex.
+*** PID: 8070: I have been called with the following argument: `aaabbbbbaaabbababaa`.
+*** PID: 8073: I am a Baboon crossing to A!
+--- PID: 8073: ToAProcess: Waiting on Mutex.
+--- PID: 8073: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8073: XingCount = 0, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 0
+--- PID: 8073: ToAProcess: It's my turn -- Going to Cross.
+	 Shared Variables status at PID 8073: XingCount = 1, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 2
+--- PID: 8073: ToAProcess: Signaling MUTEX.
+@@@ PID: 8073: ToAProcess: I am crossing the rope!.
+@@@ PID: 8073: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8073: ToAProcess: Passed MUTEX!.
+@@@ PID: 8073: ToAProcess: Setting XingDirection to None -- no one is waiting.
+	 Shared Variables status at PID 8073: XingCount = 0, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 0
+@@@ PID: 8073: ToAProcess: Signaling Mutex.
+*** PID: 8070: I have been called with the following argument: `aaabbbbbaaabbababaa`.
+*** PID: 8074: I am a Baboon crossing to B!
+--- PID: 8074: ToBProcess: Waiting on Mutex.
+--- PID: 8074: ToBProcess: Passed Mutex.
+--- PID: 8074: ToBProcess: It's my turn -- Going to Cross.
+	 Shared Variables status at PID 8074: XingCount = 1, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 1
+--- PID: 8074: ToBProcess: Signaling MUTEX.
+@@@ PID: 8074: ToBProcess: I am crossing the rope!.
+@@@ PID: 8074: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8074: ToBProcess: Passed MUTEX!.
+@@@ PID: 8074: ToBProcess: Setting XingDirection to None -- no one is waiting.
+	 Shared Variables status at PID 8074: XingCount = 0, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 0
+@@@ PID: 8074: ToBProcess: Signaling Mutex.
+*.
+*** PID: 8070: I have been called with the following argument: `aaabbbbbaaabbababaa`.
+*** PID: 8072: I am a Baboon crossing to A!
+--- PID: 8072: ToAProcess: Waiting on Mutex.
+--- PID: 8072: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8072: XingCount = 0, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 0
+--- PID: 8072: ToAProcess: It's my turn -- Going to Cross.
+	 Shared Variables status at PID 8072: XingCount = 1, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 2
+--- PID: 8072: ToAProcess: Signaling MUTEX.
+@@@ PID: 8072: ToAProcess: I am crossing the rope!.
+@@@ PID: 8072: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8072: ToAProcess: Passed MUTEX!.
+@@@ PID: 8072: ToAProcess: Changing direction to DirToB.
+	 Shared Variables status at PID 8072: XingCount = 0, XedCount = 0, toBWaitCount = 4, toAWaitCount = 0, Dir = 1
+@@@ PID: 8072: ToAProcess: Signaling a waiting ToBProcess.
+
+*** PID: 8070: I have been called with the following argument: `aaabbbbbaaabbababaa`.
+*** PID: 8075: I am a Baboon crossing to B!
+--- PID: 8075: ToBProcess: Waiting on Mutex.
+--- PID: 8075: ToBProcess: Passed Mutex.
+--- PID: 8075: ToBProcess: I have to wait.
+	 Shared Variables status at PID 8075: XingCount = 1, XedCount = 0, toBWaitCount = 1, toAWaitCount = 0, Dir = 2
+--- PID: 8075: ToBProcess: Signaling Mutex.
+--- PID: 8075: ToBProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8075: XingCount = 1, XedCount = 0, toBWaitCount = 3, toAWaitCount = 0, Dir = 1
+--- PID: 8075: ToBProcess: Signaling another Baboon crossing to B behind me.
+--- PID: 8075: ToBProcess: Going to cross.
+@@@ PID: 8075: ToBProcess: I am crossing the rope!.
+@@@ PID: 8075: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8075: ToBProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8075: XingCount = 3, XedCount = 1, toBWaitCount = 3, toAWaitCount = 4, Dir = 1
+@@@ PID: 8075: ToBProcess: Signaling a waiting baboon wanting to cross to B process!.
+.
+*** PID: 8070: I have been called with the following argument: `aaabbbbbaaabbababaa`.
+*** PID: 8077: I am a Baboon crossing to B!
+--- PID: 8077: ToBProcess: Waiting on Mutex.
+--- PID: 8077: ToBProcess: Passed Mutex.
+--- PID: 8077: ToBProcess: I have to wait.
+	 Shared Variables status at PID 8077: XingCount = 1, XedCount = 0, toBWaitCount = 3, toAWaitCount = 0, Dir = 2
+--- PID: 8077: ToBProcess: Signaling Mutex.
+--- PID: 8077: ToBProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8077: XingCount = 3, XedCount = 0, toBWaitCount = 1, toAWaitCount = 0, Dir = 1
+--- PID: 8077: ToBProcess: Signaling another Baboon crossing to B behind me.
+--- PID: 8077: ToBProcess: Going to cross.
+@@@ PID: 8077: ToBProcess: I am crossing the rope!.
+@@@ PID: 8077: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8077: ToBProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8077: XingCount = 3, XedCount = 2, toBWaitCount = 3, toAWaitCount = 7, Dir = 1
+@@@ PID: 8077: ToBProcess: Signaling a waiting baboon wanting to cross to B process!.
+.
+*** PID: 8070: I have been called with the following argument: `aaabbbbbaaabbababaa`.
+*** PID: 8078: I am a Baboon crossing to B!
+--- PID: 8078: ToBProcess: Waiting on Mutex.
+--- PID: 8078: ToBProcess: Passed Mutex.
+--- PID: 8078: ToBProcess: I have to wait.
+	 Shared Variables status at PID 8078: XingCount = 1, XedCount = 0, toBWaitCount = 4, toAWaitCount = 0, Dir = 2
+--- PID: 8078: ToBProcess: Signaling Mutex.
+--- PID: 8078: ToBProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8078: XingCount = 4, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 1
+--- PID: 8078: ToBProcess: Going to cross.
+	 Shared Variables status at PID 8078: XingCount = 4, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 1
+--- PID: 8078: ToBProcess: Signaling MUTEX.
+@@@ PID: 8078: ToBProcess: I am crossing the rope!.
+@@@ PID: 8078: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8078: ToBProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8078: XingCount = 3, XedCount = 3, toBWaitCount = 2, toAWaitCount = 7, Dir = 1
+@@@ PID: 8078: ToBProcess: Signaling a waiting baboon wanting to cross to B process!.
+.
+*** PID: 8070: I have been called with the following argument: `aaabbbbbaaabbababaa`.
+*** PID: 8076: I am a Baboon crossing to B!
+--- PID: 8076: ToBProcess: Waiting on Mutex.
+--- PID: 8076: ToBProcess: Passed Mutex.
+--- PID: 8076: ToBProcess: I have to wait.
+	 Shared Variables status at PID 8076: XingCount = 1, XedCount = 0, toBWaitCount = 2, toAWaitCount = 0, Dir = 2
+--- PID: 8076: ToBProcess: Signaling Mutex.
+--- PID: 8076: ToBProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8076: XingCount = 2, XedCount = 0, toBWaitCount = 2, toAWaitCount = 0, Dir = 1
+--- PID: 8076: ToBProcess: Signaling another Baboon crossing to B behind me.
+--- PID: 8076: ToBProcess: Going to cross.
+@@@ PID: 8076: ToBProcess: I am crossing the rope!.
+@@@ PID: 8076: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8076: ToBProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8076: XingCount = 3, XedCount = 4, toBWaitCount = 1, toAWaitCount = 7, Dir = 1
+@@@ PID: 8076: ToBProcess: Signaling a waiting baboon wanting to cross to B process!.
+.
+*** PID: 8070: I have been called with the following argument: `aaabbbbbaaabbababaa`.
+*** PID: 8082: I am a Baboon crossing to B!
+--- PID: 8082: ToBProcess: Waiting on Mutex.
+--- PID: 8082: ToBProcess: Passed Mutex.
+--- PID: 8082: ToBProcess: I have to wait.
+	 Shared Variables status at PID 8082: XingCount = 4, XedCount = 0, toBWaitCount = 1, toAWaitCount = 3, Dir = 1
+--- PID: 8082: ToBProcess: Signaling Mutex.
+--- PID: 8082: ToBProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8082: XingCount = 4, XedCount = 1, toBWaitCount = 2, toAWaitCount = 4, Dir = 1
+--- PID: 8082: ToBProcess: Going to cross.
+	 Shared Variables status at PID 8082: XingCount = 4, XedCount = 1, toBWaitCount = 2, toAWaitCount = 4, Dir = 1
+--- PID: 8082: ToBProcess: Signaling MUTEX.
+@@@ PID: 8082: ToBProcess: I am crossing the rope!.
+@@@ PID: 8082: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8082: ToBProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8082: XingCount = 3, XedCount = 5, toBWaitCount = 0, toAWaitCount = 7, Dir = 1
+@@@ PID: 8082: ToBProcess: Signaling Mutex.
+.
+*** PID: 8070: I have been called with the following argument: `aaabbbbbaaabbababaa`.
+*** PID: 8083: I am a Baboon crossing to B!
+--- PID: 8083: ToBProcess: Waiting on Mutex.
+--- PID: 8083: ToBProcess: Passed Mutex.
+--- PID: 8083: ToBProcess: I have to wait.
+	 Shared Variables status at PID 8083: XingCount = 4, XedCount = 0, toBWaitCount = 2, toAWaitCount = 3, Dir = 1
+--- PID: 8083: ToBProcess: Signaling Mutex.
+--- PID: 8083: ToBProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8083: XingCount = 4, XedCount = 2, toBWaitCount = 2, toAWaitCount = 7, Dir = 1
+--- PID: 8083: ToBProcess: Going to cross.
+	 Shared Variables status at PID 8083: XingCount = 4, XedCount = 2, toBWaitCount = 2, toAWaitCount = 7, Dir = 1
+--- PID: 8083: ToBProcess: Signaling MUTEX.
+@@@ PID: 8083: ToBProcess: I am crossing the rope!.
+@@@ PID: 8083: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8083: ToBProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8083: XingCount = 2, XedCount = 6, toBWaitCount = 0, toAWaitCount = 7, Dir = 1
+@@@ PID: 8083: ToBProcess: Signaling Mutex.
+.
+*** PID: 8070: I have been called with the following argument: `aaabbbbbaaabbababaa`.
+*** PID: 8085: I am a Baboon crossing to B!
+--- PID: 8085: ToBProcess: Waiting on Mutex.
+--- PID: 8085: ToBProcess: Passed Mutex.
+--- PID: 8085: ToBProcess: I have to wait.
+	 Shared Variables status at PID 8085: XingCount = 4, XedCount = 0, toBWaitCount = 3, toAWaitCount = 4, Dir = 1
+--- PID: 8085: ToBProcess: Signaling Mutex.
+--- PID: 8085: ToBProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8085: XingCount = 4, XedCount = 3, toBWaitCount = 1, toAWaitCount = 7, Dir = 1
+--- PID: 8085: ToBProcess: Going to cross.
+	 Shared Variables status at PID 8085: XingCount = 4, XedCount = 3, toBWaitCount = 1, toAWaitCount = 7, Dir = 1
+--- PID: 8085: ToBProcess: Signaling MUTEX.
+@@@ PID: 8085: ToBProcess: I am crossing the rope!.
+@@@ PID: 8085: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8085: ToBProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8085: XingCount = 1, XedCount = 7, toBWaitCount = 0, toAWaitCount = 7, Dir = 1
+@@@ PID: 8085: ToBProcess: Signaling Mutex.
+.
+*** PID: 8070: I have been called with the following argument: `aaabbbbbaaabbababaa`.
+*** PID: 8087: I am a Baboon crossing to B!
+--- PID: 8087: ToBProcess: Waiting on Mutex.
+--- PID: 8087: ToBProcess: Passed Mutex.
+--- PID: 8087: ToBProcess: I have to wait.
+	 Shared Variables status at PID 8087: XingCount = 4, XedCount = 1, toBWaitCount = 3, toAWaitCount = 7, Dir = 1
+--- PID: 8087: ToBProcess: Signaling Mutex.
+--- PID: 8087: ToBProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8087: XingCount = 4, XedCount = 4, toBWaitCount = 0, toAWaitCount = 7, Dir = 1
+--- PID: 8087: ToBProcess: Going to cross.
+	 Shared Variables status at PID 8087: XingCount = 4, XedCount = 4, toBWaitCount = 0, toAWaitCount = 7, Dir = 1
+--- PID: 8087: ToBProcess: Signaling MUTEX.
+@@@ PID: 8087: ToBProcess: I am crossing the rope!.
+@@@ PID: 8087: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8087: ToBProcess: Passed MUTEX!.
+@@@ PID: 8087: ToBProcess: Changing direction to DirToA and signaling a waiting ToAProcess baboon.
+	 Shared Variables status at PID 8087: XingCount = 0, XedCount = 0, toBWaitCount = 0, toAWaitCount = 7, Dir = 2
+.
+*** PID: 8070: I have been called with the following argument: `aaabbbbbaaabbababaa`.
+*** PID: 8079: I am a Baboon crossing to A!
+--- PID: 8079: ToAProcess: Waiting on Mutex.
+--- PID: 8079: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8079: XingCount = 4, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 1
+--- PID: 8079: ToAProcess: I have to wait.
+	 Shared Variables status at PID 8079: XingCount = 4, XedCount = 0, toBWaitCount = 0, toAWaitCount = 1, Dir = 1
+--- PID: 8079: ToAProcess: Signaling Mutex.
+--- PID: 8079: ToAProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8079: XingCount = 1, XedCount = 0, toBWaitCount = 0, toAWaitCount = 6, Dir = 2
+--- PID: 8079: ToAProcess: Going to cross.
+--- PID: 8079: ToAProcess: Signalling a ToAProcess behind me.
+@@@ PID: 8079: ToAProcess: I am crossing the rope!.
+@@@ PID: 8079: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8079: ToAProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8079: XingCount = 3, XedCount = 1, toBWaitCount = 0, toAWaitCount = 3, Dir = 2
+@@@ PID: 8079: ToAProcess: Signaling a waiting ToAProcess!.
+.
+*** PID: 8070: I have been called with the following argument: `aaabbbbbaaabbababaa`.
+*** PID: 8080: I am a Baboon crossing to A!
+--- PID: 8080: ToAProcess: Waiting on Mutex.
+--- PID: 8080: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8080: XingCount = 4, XedCount = 0, toBWaitCount = 0, toAWaitCount = 1, Dir = 1
+--- PID: 8080: ToAProcess: I have to wait.
+	 Shared Variables status at PID 8080: XingCount = 4, XedCount = 0, toBWaitCount = 0, toAWaitCount = 2, Dir = 1
+--- PID: 8080: ToAProcess: Signaling Mutex.
+--- PID: 8080: ToAProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8080: XingCount = 2, XedCount = 0, toBWaitCount = 0, toAWaitCount = 5, Dir = 2
+--- PID: 8080: ToAProcess: Going to cross.
+--- PID: 8080: ToAProcess: Signalling a ToAProcess behind me.
+@@@ PID: 8080: ToAProcess: I am crossing the rope!.
+@@@ PID: 8080: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8080: ToAProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8080: XingCount = 3, XedCount = 2, toBWaitCount = 0, toAWaitCount = 2, Dir = 2
+@@@ PID: 8080: ToAProcess: Signaling a waiting ToAProcess!.
+.
+*** PID: 8070: I have been called with the following argument: `aaabbbbbaaabbababaa`.
+*** PID: 8081: I am a Baboon crossing to A!
+--- PID: 8081: ToAProcess: Waiting on Mutex.
+--- PID: 8081: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8081: XingCount = 4, XedCount = 0, toBWaitCount = 0, toAWaitCount = 2, Dir = 1
+--- PID: 8081: ToAProcess: I have to wait.
+	 Shared Variables status at PID 8081: XingCount = 4, XedCount = 0, toBWaitCount = 0, toAWaitCount = 3, Dir = 1
+--- PID: 8081: ToAProcess: Signaling Mutex.
+--- PID: 8081: ToAProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8081: XingCount = 3, XedCount = 0, toBWaitCount = 0, toAWaitCount = 4, Dir = 2
+--- PID: 8081: ToAProcess: Going to cross.
+--- PID: 8081: ToAProcess: Signalling a ToAProcess behind me.
+@@@ PID: 8081: ToAProcess: I am crossing the rope!.
+@@@ PID: 8081: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8081: ToAProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8081: XingCount = 3, XedCount = 3, toBWaitCount = 0, toAWaitCount = 1, Dir = 2
+@@@ PID: 8081: ToAProcess: Signaling a waiting ToAProcess!.
+.
+*** PID: 8070: I have been called with the following argument: `aaabbbbbaaabbababaa`.
+*** PID: 8084: I am a Baboon crossing to A!
+--- PID: 8084: ToAProcess: Waiting on Mutex.
+--- PID: 8084: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8084: XingCount = 4, XedCount = 0, toBWaitCount = 2, toAWaitCount = 3, Dir = 1
+--- PID: 8084: ToAProcess: I have to wait.
+	 Shared Variables status at PID 8084: XingCount = 4, XedCount = 0, toBWaitCount = 2, toAWaitCount = 4, Dir = 1
+--- PID: 8084: ToAProcess: Signaling Mutex.
+--- PID: 8084: ToAProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8084: XingCount = 4, XedCount = 0, toBWaitCount = 0, toAWaitCount = 3, Dir = 2
+--- PID: 8084: ToAProcess: Going to cross.
+	 Shared Variables status at PID 8084: XingCount = 4, XedCount = 0, toBWaitCount = 0, toAWaitCount = 3, Dir = 2
+--- PID: 8084: ToAProcess: Signaling MUTEX.
+@@@ PID: 8084: ToAProcess: I am crossing the rope!.
+@@@ PID: 8084: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8084: ToAProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8084: XingCount = 3, XedCount = 4, toBWaitCount = 0, toAWaitCount = 0, Dir = 2
+@@@ PID: 8084: ToAProcess: Signaling Mutex.
+.
+*** PID: 8070: I have been called with the following argument: `aaabbbbbaaabbababaa`.
+*** PID: 8086: I am a Baboon crossing to A!
+--- PID: 8086: ToAProcess: Waiting on Mutex.
+--- PID: 8086: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8086: XingCount = 4, XedCount = 1, toBWaitCount = 2, toAWaitCount = 4, Dir = 1
+--- PID: 8086: ToAProcess: I have to wait.
+	 Shared Variables status at PID 8086: XingCount = 4, XedCount = 1, toBWaitCount = 2, toAWaitCount = 5, Dir = 1
+--- PID: 8086: ToAProcess: Signaling Mutex.
+--- PID: 8086: ToAProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8086: XingCount = 4, XedCount = 1, toBWaitCount = 0, toAWaitCount = 2, Dir = 2
+--- PID: 8086: ToAProcess: Going to cross.
+	 Shared Variables status at PID 8086: XingCount = 4, XedCount = 1, toBWaitCount = 0, toAWaitCount = 2, Dir = 2
+--- PID: 8086: ToAProcess: Signaling MUTEX.
+@@@ PID: 8086: ToAProcess: I am crossing the rope!.
+@@@ PID: 8086: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8086: ToAProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8086: XingCount = 2, XedCount = 5, toBWaitCount = 0, toAWaitCount = 0, Dir = 2
+@@@ PID: 8086: ToAProcess: Signaling Mutex.
+.
+*** PID: 8070: I have been called with the following argument: `aaabbbbbaaabbababaa`.
+*** PID: 8088: I am a Baboon crossing to A!
+--- PID: 8088: ToAProcess: Waiting on Mutex.
+--- PID: 8088: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8088: XingCount = 4, XedCount = 1, toBWaitCount = 2, toAWaitCount = 5, Dir = 1
+--- PID: 8088: ToAProcess: I have to wait.
+	 Shared Variables status at PID 8088: XingCount = 4, XedCount = 1, toBWaitCount = 2, toAWaitCount = 6, Dir = 1
+--- PID: 8088: ToAProcess: Signaling Mutex.
+--- PID: 8088: ToAProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8088: XingCount = 4, XedCount = 2, toBWaitCount = 0, toAWaitCount = 1, Dir = 2
+--- PID: 8088: ToAProcess: Going to cross.
+	 Shared Variables status at PID 8088: XingCount = 4, XedCount = 2, toBWaitCount = 0, toAWaitCount = 1, Dir = 2
+--- PID: 8088: ToAProcess: Signaling MUTEX.
+@@@ PID: 8088: ToAProcess: I am crossing the rope!.
+@@@ PID: 8088: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8088: ToAProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8088: XingCount = 1, XedCount = 6, toBWaitCount = 0, toAWaitCount = 0, Dir = 2
+@@@ PID: 8088: ToAProcess: Signaling Mutex.
+.
+*** PID: 8070: I have been called with the following argument: `aaabbbbbaaabbababaa`.
+*** PID: 8089: I am a Baboon crossing to A!
+--- PID: 8089: ToAProcess: Waiting on Mutex.
+--- PID: 8089: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8089: XingCount = 4, XedCount = 1, toBWaitCount = 2, toAWaitCount = 6, Dir = 1
+--- PID: 8089: ToAProcess: I have to wait.
+	 Shared Variables status at PID 8089: XingCount = 4, XedCount = 1, toBWaitCount = 2, toAWaitCount = 7, Dir = 1
+--- PID: 8089: ToAProcess: Signaling Mutex.
+--- PID: 8089: ToAProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8089: XingCount = 4, XedCount = 3, toBWaitCount = 0, toAWaitCount = 0, Dir = 2
+--- PID: 8089: ToAProcess: Going to cross.
+	 Shared Variables status at PID 8089: XingCount = 4, XedCount = 3, toBWaitCount = 0, toAWaitCount = 0, Dir = 2
+--- PID: 8089: ToAProcess: Signaling MUTEX.
+@@@ PID: 8089: ToAProcess: I am crossing the rope!.
+@@@ PID: 8089: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8089: ToAProcess: Passed MUTEX!.
+@@@ PID: 8089: ToAProcess: Setting XingDirection to None -- no one is waiting.
+	 Shared Variables status at PID 8089: XingCount = 0, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 0
+@@@ PID: 8089: ToAProcess: Signaling Mutex.
+*** PID: 8070: I have been called with the following argument: `aaabbbbbaaabbababaa`.
+Baboons have crossed without killing eachother. Great Success!
+*** Hello World! I am 8097.
+*** PID: 8097: I have been called with the following argument: `aaabbbbbaaabbabbbbbaa`.
+*** PID: 8098: I am a Baboon crossing to A!
+--- PID: 8098: ToAProcess: Waiting on Mutex.
+--- PID: 8098: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8098: XingCount = 0, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 0
+--- PID: 8098: ToAProcess: It's my turn -- Going to Cross.
+	 Shared Variables status at PID 8098: XingCount = 1, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 2
+--- PID: 8098: ToAProcess: Signaling MUTEX.
+@@@ PID: 8098: ToAProcess: I am crossing the rope!.
+@@@ PID: 8098: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8098: ToAProcess: Passed MUTEX!.
+@@@ PID: 8098: ToAProcess: Setting XingDirection to None -- no one is waiting.
+	 Shared Variables status at PID 8098: XingCount = 0, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 0
+@@@ PID: 8098: ToAProcess: Signaling Mutex.
+
+*** PID: 8097: I have been called with the following argument: `aaabbbbbaaabbabbbbbaa`.
+*** PID: 8099: I am a Baboon crossing to A!
+--- PID: 8099: ToAProcess: Waiting on Mutex.
+--- PID: 8099: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8099: XingCount = 0, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 0
+--- PID: 8099: ToAProcess: It's my turn -- Going to Cross.
+	 Shared Variables status at PID 8099: XingCount = 1, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 2
+--- PID: 8099: ToAProcess: Signaling MUTEX.
+@@@ PID: 8099: ToAProcess: I am crossing the rope!.
+@@@ PID: 8099: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8099: ToAProcess: Passed MUTEX!.
+@@@ PID: 8099: ToAProcess: Setting XingDirection to None -- no one is waiting.
+	 Shared Variables status at PID 8099: XingCount = 0, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 0
+@@@ PID: 8099: ToAProcess: Signaling Mutex.
+
+*** PID: 8097: I have been called with the following argument: `aaabbbbbaaabbabbbbbaa`.
+*** PID: 8104: I am a Baboon crossing to B!
+--- PID: 8104: ToBProcess: Waiting on Mutex.
+--- PID: 8104: ToBProcess: Passed Mutex.
+--- PID: 8104: ToBProcess: It's my turn -- Going to Cross.
+	 Shared Variables status at PID 8104: XingCount = 1, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 1
+--- PID: 8104: ToBProcess: Signaling MUTEX.
+@@@ PID: 8104: ToBProcess: I am crossing the rope!.
+@@@ PID: 8104: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8104: ToBProcess: Passed MUTEX!.
+@@@ PID: 8104: ToBProcess: Setting XingDirection to None -- no one is waiting.
+	 Shared Variables status at PID 8104: XingCount = 0, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 0
+@@@ PID: 8104: ToBProcess: Signaling Mutex.
+
+*** PID: 8097: I have been called with the following argument: `aaabbbbbaaabbabbbbbaa`.
+*** PID: 8103: I am a Baboon crossing to B!
+--- PID: 8103: ToBProcess: Waiting on Mutex.
+--- PID: 8103: ToBProcess: Passed Mutex.
+--- PID: 8103: ToBProcess: It's my turn -- Going to Cross.
+	 Shared Variables status at PID 8103: XingCount = 1, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 1
+--- PID: 8103: ToBProcess: Signaling MUTEX.
+@@@ PID: 8103: ToBProcess: I am crossing the rope!.
+@@@ PID: 8103: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8103: ToBProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8103: XingCount = 1, XedCount = 1, toBWaitCount = 0, toAWaitCount = 0, Dir = 1
+@@@ PID: 8103: ToBProcess: Signaling Mutex.
+
+*** PID: 8097: I have been called with the following argument: `aaabbbbbaaabbabbbbbaa`.
+*** PID: 8105: I am a Baboon crossing to B!
+--- PID: 8105: ToBProcess: Waiting on Mutex.
+--- PID: 8105: ToBProcess: Passed Mutex.
+--- PID: 8105: ToBProcess: It's my turn -- Going to Cross.
+	 Shared Variables status at PID 8105: XingCount = 2, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 1
+--- PID: 8105: ToBProcess: Signaling MUTEX.
+@@@ PID: 8105: ToBProcess: I am crossing the rope!.
+@@@ PID: 8105: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8105: ToBProcess: Passed MUTEX!.
+@@@ PID: 8105: ToBProcess: Setting XingDirection to None -- no one is waiting.
+	 Shared Variables status at PID 8105: XingCount = 0, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 0
+@@@ PID: 8105: ToBProcess: Signaling Mutex.
+
+*** PID: 8097: I have been called with the following argument: `aaabbbbbaaabbabbbbbaa`.
+*** PID: 8112: I am a Baboon crossing to B!
+--- PID: 8112: ToBProcess: Waiting on Mutex.
+--- PID: 8112: ToBProcess: Passed Mutex.
+--- PID: 8112: ToBProcess: It's my turn -- Going to Cross.
+	 Shared Variables status at PID 8112: XingCount = 1, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 1
+--- PID: 8112: ToBProcess: Signaling MUTEX.
+@@@ PID: 8112: ToBProcess: I am crossing the rope!.
+@@@ PID: 8112: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8112: ToBProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8112: XingCount = 1, XedCount = 1, toBWaitCount = 0, toAWaitCount = 3, Dir = 1
+@@@ PID: 8112: ToBProcess: Signaling Mutex.
+
+*** PID: 8097: I have been called with the following argument: `aaabbbbbaaabbabbbbbaa`.
+*** PID: 8109: I am a Baboon crossing to B!
+--- PID: 8109: ToBProcess: Waiting on Mutex.
+--- PID: 8109: ToBProcess: Passed Mutex.
+--- PID: 8109: ToBProcess: It's my turn -- Going to Cross.
+	 Shared Variables status at PID 8109: XingCount = 2, XedCount = 0, toBWaitCount = 0, toAWaitCount = 3, Dir = 1
+--- PID: 8109: ToBProcess: Signaling MUTEX.
+@@@ PID: 8109: ToBProcess: I am crossing the rope!.
+@@@ PID: 8109: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8109: ToBProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8109: XingCount = 1, XedCount = 2, toBWaitCount = 0, toAWaitCount = 3, Dir = 1
+@@@ PID: 8109: ToBProcess: Signaling Mutex.
+
+*** PID: 8097: I have been called with the following argument: `aaabbbbbaaabbabbbbbaa`.
+*** PID: 8113: I am a Baboon crossing to B!
+--- PID: 8113: ToBProcess: Waiting on Mutex.
+--- PID: 8113: ToBProcess: Passed Mutex.
+--- PID: 8113: ToBProcess: It's my turn -- Going to Cross.
+	 Shared Variables status at PID 8113: XingCount = 2, XedCount = 1, toBWaitCount = 0, toAWaitCount = 3, Dir = 1
+--- PID: 8113: ToBProcess: Signaling MUTEX.
+@@@ PID: 8113: ToBProcess: I am crossing the rope!.
+@@@ PID: 8113: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8113: ToBProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8113: XingCount = 1, XedCount = 3, toBWaitCount = 0, toAWaitCount = 3, Dir = 1
+@@@ PID: 8113: ToBProcess: Signaling Mutex.
+
+*** PID: 8097: I have been called with the following argument: `aaabbbbbaaabbabbbbbaa`.
+*** PID: 8110: I am a Baboon crossing to B!
+--- PID: 8110: ToBProcess: Waiting on Mutex.
+--- PID: 8110: ToBProcess: Passed Mutex.
+--- PID: 8110: ToBProcess: It's my turn -- Going to Cross.
+	 Shared Variables status at PID 8110: XingCount = 2, XedCount = 2, toBWaitCount = 0, toAWaitCount = 3, Dir = 1
+--- PID: 8110: ToBProcess: Signaling MUTEX.
+@@@ PID: 8110: ToBProcess: I am crossing the rope!.
+@@@ PID: 8110: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8110: ToBProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8110: XingCount = 1, XedCount = 4, toBWaitCount = 0, toAWaitCount = 3, Dir = 1
+@@@ PID: 8110: ToBProcess: Signaling Mutex.
+
+*** PID: 8097: I have been called with the following argument: `aaabbbbbaaabbabbbbbaa`.
+*** PID: 8115: I am a Baboon crossing to B!
+--- PID: 8115: ToBProcess: Waiting on Mutex.
+--- PID: 8115: ToBProcess: Passed Mutex.
+--- PID: 8115: ToBProcess: It's my turn -- Going to Cross.
+	 Shared Variables status at PID 8115: XingCount = 2, XedCount = 4, toBWaitCount = 0, toAWaitCount = 4, Dir = 1
+--- PID: 8115: ToBProcess: Signaling MUTEX.
+@@@ PID: 8115: ToBProcess: I am crossing the rope!.
+@@@ PID: 8115: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8115: ToBProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8115: XingCount = 2, XedCount = 5, toBWaitCount = 0, toAWaitCount = 5, Dir = 1
+@@@ PID: 8115: ToBProcess: Signaling Mutex.
+
+*** PID: 8097: I have been called with the following argument: `aaabbbbbaaabbabbbbbaa`.
+*** PID: 8101: I am a Baboon crossing to B!
+--- PID: 8101: ToBProcess: Waiting on Mutex.
+--- PID: 8101: ToBProcess: Passed Mutex.
+--- PID: 8101: ToBProcess: It's my turn -- Going to Cross.
+	 Shared Variables status at PID 8101: XingCount = 3, XedCount = 4, toBWaitCount = 0, toAWaitCount = 5, Dir = 1
+--- PID: 8101: ToBProcess: Signaling MUTEX.
+@@@ PID: 8101: ToBProcess: I am crossing the rope!.
+@@@ PID: 8101: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8101: ToBProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8101: XingCount = 1, XedCount = 6, toBWaitCount = 0, toAWaitCount = 5, Dir = 1
+@@@ PID: 8101: ToBProcess: Signaling Mutex.
+
+*** PID: 8097: I have been called with the following argument: `aaabbbbbaaabbabbbbbaa`.
+*** PID: 8116: I am a Baboon crossing to B!
+--- PID: 8116: ToBProcess: Waiting on Mutex.
+--- PID: 8116: ToBProcess: Passed Mutex.
+--- PID: 8116: ToBProcess: It's my turn -- Going to Cross.
+	 Shared Variables status at PID 8116: XingCount = 2, XedCount = 6, toBWaitCount = 0, toAWaitCount = 5, Dir = 1
+--- PID: 8116: ToBProcess: Signaling MUTEX.
+@@@ PID: 8116: ToBProcess: I am crossing the rope!.
+@@@ PID: 8116: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8116: ToBProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8116: XingCount = 2, XedCount = 7, toBWaitCount = 0, toAWaitCount = 5, Dir = 1
+@@@ PID: 8116: ToBProcess: Signaling Mutex.
+
+*** PID: 8097: I have been called with the following argument: `aaabbbbbaaabbabbbbbaa`.
+*** PID: 8102: I am a Baboon crossing to B!
+--- PID: 8102: ToBProcess: Waiting on Mutex.
+--- PID: 8102: ToBProcess: Passed Mutex.
+--- PID: 8102: ToBProcess: It's my turn -- Going to Cross.
+	 Shared Variables status at PID 8102: XingCount = 3, XedCount = 6, toBWaitCount = 0, toAWaitCount = 5, Dir = 1
+--- PID: 8102: ToBProcess: Signaling MUTEX.
+@@@ PID: 8102: ToBProcess: I am crossing the rope!.
+@@@ PID: 8102: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8102: ToBProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8102: XingCount = 1, XedCount = 8, toBWaitCount = 0, toAWaitCount = 5, Dir = 1
+@@@ PID: 8102: ToBProcess: Signaling Mutex.
+
+*** PID: 8097: I have been called with the following argument: `aaabbbbbaaabbabbbbbaa`.
+*** PID: 8114: I am a Baboon crossing to B!
+--- PID: 8114: ToBProcess: Waiting on Mutex.
+--- PID: 8114: ToBProcess: Passed Mutex.
+--- PID: 8114: ToBProcess: It's my turn -- Going to Cross.
+	 Shared Variables status at PID 8114: XingCount = 2, XedCount = 3, toBWaitCount = 0, toAWaitCount = 3, Dir = 1
+--- PID: 8114: ToBProcess: Signaling MUTEX.
+@@@ PID: 8114: ToBProcess: I am crossing the rope!.
+@@@ PID: 8114: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8114: ToBProcess: Passed MUTEX!.
+@@@ PID: 8114: ToBProcess: Changing direction to DirToA and signaling a waiting ToAProcess baboon.
+	 Shared Variables status at PID 8114: XingCount = 0, XedCount = 0, toBWaitCount = 0, toAWaitCount = 7, Dir = 2
+
+*** PID: 8097: I have been called with the following argument: `aaabbbbbaaabbabbbbbaa`.
+*** PID: 8107: I am a Baboon crossing to A!
+--- PID: 8107: ToAProcess: Waiting on Mutex.
+--- PID: 8107: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8107: XingCount = 1, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 1
+--- PID: 8107: ToAProcess: I have to wait.
+	 Shared Variables status at PID 8107: XingCount = 1, XedCount = 0, toBWaitCount = 0, toAWaitCount = 1, Dir = 1
+--- PID: 8107: ToAProcess: Signaling Mutex.
+--- PID: 8107: ToAProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8107: XingCount = 1, XedCount = 0, toBWaitCount = 0, toAWaitCount = 6, Dir = 2
+--- PID: 8107: ToAProcess: Going to cross.
+--- PID: 8107: ToAProcess: Signalling a ToAProcess behind me.
+@@@ PID: 8107: ToAProcess: I am crossing the rope!.
+@@@ PID: 8107: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8107: ToAProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8107: XingCount = 3, XedCount = 1, toBWaitCount = 0, toAWaitCount = 3, Dir = 2
+@@@ PID: 8107: ToAProcess: Signaling a waiting ToAProcess!.
+
+*** PID: 8097: I have been called with the following argument: `aaabbbbbaaabbabbbbbaa`.
+*** PID: 8108: I am a Baboon crossing to A!
+--- PID: 8108: ToAProcess: Waiting on Mutex.
+--- PID: 8108: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8108: XingCount = 1, XedCount = 0, toBWaitCount = 0, toAWaitCount = 1, Dir = 1
+--- PID: 8108: ToAProcess: I have to wait.
+	 Shared Variables status at PID 8108: XingCount = 1, XedCount = 0, toBWaitCount = 0, toAWaitCount = 2, Dir = 1
+--- PID: 8108: ToAProcess: Signaling Mutex.
+--- PID: 8108: ToAProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8108: XingCount = 2, XedCount = 0, toBWaitCount = 0, toAWaitCount = 5, Dir = 2
+--- PID: 8108: ToAProcess: Going to cross.
+--- PID: 8108: ToAProcess: Signalling a ToAProcess behind me.
+@@@ PID: 8108: ToAProcess: I am crossing the rope!.
+@@@ PID: 8108: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8108: ToAProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8108: XingCount = 3, XedCount = 2, toBWaitCount = 0, toAWaitCount = 2, Dir = 2
+@@@ PID: 8108: ToAProcess: Signaling a waiting ToAProcess!.
+
+*** PID: 8097: I have been called with the following argument: `aaabbbbbaaabbabbbbbaa`.
+*** PID: 8106: I am a Baboon crossing to A!
+--- PID: 8106: ToAProcess: Waiting on Mutex.
+--- PID: 8106: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8106: XingCount = 1, XedCount = 0, toBWaitCount = 0, toAWaitCount = 2, Dir = 1
+--- PID: 8106: ToAProcess: I have to wait.
+	 Shared Variables status at PID 8106: XingCount = 1, XedCount = 0, toBWaitCount = 0, toAWaitCount = 3, Dir = 1
+--- PID: 8106: ToAProcess: Signaling Mutex.
+--- PID: 8106: ToAProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8106: XingCount = 3, XedCount = 0, toBWaitCount = 0, toAWaitCount = 4, Dir = 2
+--- PID: 8106: ToAProcess: Going to cross.
+--- PID: 8106: ToAProcess: Signalling a ToAProcess behind me.
+@@@ PID: 8106: ToAProcess: I am crossing the rope!.
+@@@ PID: 8106: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8106: ToAProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8106: XingCount = 3, XedCount = 3, toBWaitCount = 0, toAWaitCount = 1, Dir = 2
+@@@ PID: 8106: ToAProcess: Signaling a waiting ToAProcess!.
+
+*** PID: 8097: I have been called with the following argument: `aaabbbbbaaabbabbbbbaa`.
+*** PID: 8111: I am a Baboon crossing to A!
+--- PID: 8111: ToAProcess: Waiting on Mutex.
+--- PID: 8111: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8111: XingCount = 1, XedCount = 4, toBWaitCount = 0, toAWaitCount = 3, Dir = 1
+--- PID: 8111: ToAProcess: I have to wait.
+	 Shared Variables status at PID 8111: XingCount = 1, XedCount = 4, toBWaitCount = 0, toAWaitCount = 4, Dir = 1
+--- PID: 8111: ToAProcess: Signaling Mutex.
+--- PID: 8111: ToAProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8111: XingCount = 4, XedCount = 0, toBWaitCount = 0, toAWaitCount = 3, Dir = 2
+--- PID: 8111: ToAProcess: Going to cross.
+	 Shared Variables status at PID 8111: XingCount = 4, XedCount = 0, toBWaitCount = 0, toAWaitCount = 3, Dir = 2
+--- PID: 8111: ToAProcess: Signaling MUTEX.
+@@@ PID: 8111: ToAProcess: I am crossing the rope!.
+@@@ PID: 8111: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8111: ToAProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8111: XingCount = 3, XedCount = 4, toBWaitCount = 0, toAWaitCount = 0, Dir = 2
+@@@ PID: 8111: ToAProcess: Signaling Mutex.
+
+*** PID: 8097: I have been called with the following argument: `aaabbbbbaaabbabbbbbaa`.
+*** PID: 8100: I am a Baboon crossing to A!
+--- PID: 8100: ToAProcess: Waiting on Mutex.
+--- PID: 8100: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8100: XingCount = 2, XedCount = 4, toBWaitCount = 0, toAWaitCount = 4, Dir = 1
+--- PID: 8100: ToAProcess: I have to wait.
+	 Shared Variables status at PID 8100: XingCount = 2, XedCount = 4, toBWaitCount = 0, toAWaitCount = 5, Dir = 1
+--- PID: 8100: ToAProcess: Signaling Mutex.
+--- PID: 8100: ToAProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8100: XingCount = 4, XedCount = 1, toBWaitCount = 0, toAWaitCount = 2, Dir = 2
+--- PID: 8100: ToAProcess: Going to cross.
+	 Shared Variables status at PID 8100: XingCount = 4, XedCount = 1, toBWaitCount = 0, toAWaitCount = 2, Dir = 2
+--- PID: 8100: ToAProcess: Signaling MUTEX.
+@@@ PID: 8100: ToAProcess: I am crossing the rope!.
+@@@ PID: 8100: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8100: ToAProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8100: XingCount = 2, XedCount = 5, toBWaitCount = 0, toAWaitCount = 0, Dir = 2
+@@@ PID: 8100: ToAProcess: Signaling Mutex.
+
+*** PID: 8097: I have been called with the following argument: `aaabbbbbaaabbabbbbbaa`.
+*** PID: 8117: I am a Baboon crossing to A!
+--- PID: 8117: ToAProcess: Waiting on Mutex.
+--- PID: 8117: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8117: XingCount = 1, XedCount = 8, toBWaitCount = 0, toAWaitCount = 5, Dir = 1
+--- PID: 8117: ToAProcess: I have to wait.
+	 Shared Variables status at PID 8117: XingCount = 1, XedCount = 8, toBWaitCount = 0, toAWaitCount = 6, Dir = 1
+--- PID: 8117: ToAProcess: Signaling Mutex.
+--- PID: 8117: ToAProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8117: XingCount = 4, XedCount = 2, toBWaitCount = 0, toAWaitCount = 1, Dir = 2
+--- PID: 8117: ToAProcess: Going to cross.
+	 Shared Variables status at PID 8117: XingCount = 4, XedCount = 2, toBWaitCount = 0, toAWaitCount = 1, Dir = 2
+--- PID: 8117: ToAProcess: Signaling MUTEX.
+@@@ PID: 8117: ToAProcess: I am crossing the rope!.
+@@@ PID: 8117: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8117: ToAProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8117: XingCount = 1, XedCount = 6, toBWaitCount = 0, toAWaitCount = 0, Dir = 2
+@@@ PID: 8117: ToAProcess: Signaling Mutex.
+
+*** PID: 8097: I have been called with the following argument: `aaabbbbbaaabbabbbbbaa`.
+*** PID: 8118: I am a Baboon crossing to A!
+--- PID: 8118: ToAProcess: Waiting on Mutex.
+--- PID: 8118: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8118: XingCount = 1, XedCount = 8, toBWaitCount = 0, toAWaitCount = 6, Dir = 1
+--- PID: 8118: ToAProcess: I have to wait.
+	 Shared Variables status at PID 8118: XingCount = 1, XedCount = 8, toBWaitCount = 0, toAWaitCount = 7, Dir = 1
+--- PID: 8118: ToAProcess: Signaling Mutex.
+--- PID: 8118: ToAProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8118: XingCount = 4, XedCount = 3, toBWaitCount = 0, toAWaitCount = 0, Dir = 2
+--- PID: 8118: ToAProcess: Going to cross.
+	 Shared Variables status at PID 8118: XingCount = 4, XedCount = 3, toBWaitCount = 0, toAWaitCount = 0, Dir = 2
+--- PID: 8118: ToAProcess: Signaling MUTEX.
+@@@ PID: 8118: ToAProcess: I am crossing the rope!.
+@@@ PID: 8118: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8118: ToAProcess: Passed MUTEX!.
+@@@ PID: 8118: ToAProcess: Setting XingDirection to None -- no one is waiting.
+	 Shared Variables status at PID 8118: XingCount = 0, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 0
+@@@ PID: 8118: ToAProcess: Signaling Mutex.
+
+*** PID: 8097: I have been called with the following argument: `aaabbbbbaaabbabbbbbaa`.
+Baboons have crossed without killing eachother. Great Success!
+*** Hello World! I am 8119.
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+*** PID: 8130: I am a Baboon crossing to A!
+--- PID: 8130: ToAProcess: Waiting on Mutex.
+--- PID: 8130: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8130: XingCount = 1, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 2
+--- PID: 8130: ToAProcess: It's my turn -- Going to Cross.
+	 Shared Variables status at PID 8130: XingCount = 2, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 2
+--- PID: 8130: ToAProcess: Signaling MUTEX.
+@@@ PID: 8130: ToAProcess: I am crossing the rope!.
+@@@ PID: 8130: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8130: ToAProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8130: XingCount = 1, XedCount = 1, toBWaitCount = 0, toAWaitCount = 0, Dir = 2
+@@@ PID: 8130: ToAProcess: Signaling Mutex.
+
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+*** PID: 8129: I am a Baboon crossing to A!
+--- PID: 8129: ToAProcess: Waiting on Mutex.
+--- PID: 8129: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8129: XingCount = 0, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 0
+--- PID: 8129: ToAProcess: It's my turn -- Going to Cross.
+	 Shared Variables status at PID 8129: XingCount = 1, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 2
+--- PID: 8129: ToAProcess: Signaling MUTEX.
+@@@ PID: 8129: ToAProcess: I am crossing the rope!.
+@@@ PID: 8129: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8129: ToAProcess: Passed MUTEX!.
+@@@ PID: 8129: ToAProcess: Setting XingDirection to None -- no one is waiting.
+	 Shared Variables status at PID 8129: XingCount = 0, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 0
+@@@ PID: 8129: ToAProcess: Signaling Mutex.
+
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+*** PID: 8131: I am a Baboon crossing to B!
+--- PID: 8131: ToBProcess: Waiting on Mutex.
+--- PID: 8131: ToBProcess: Passed Mutex.
+--- PID: 8131: ToBProcess: It's my turn -- Going to Cross.
+	 Shared Variables status at PID 8131: XingCount = 1, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 1
+--- PID: 8131: ToBProcess: Signaling MUTEX.
+@@@ PID: 8131: ToBProcess: I am crossing the rope!.
+@@@ PID: 8131: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8131: ToBProcess: Passed MUTEX!.
+@@@ PID: 8131: ToBProcess: Setting XingDirection to None -- no one is waiting.
+	 Shared Variables status at PID 8131: XingCount = 0, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 0
+@@@ PID: 8131: ToBProcess: Signaling Mutex.
+
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+*** PID: 8126: I am a Baboon crossing to B!
+--- PID: 8126: ToBProcess: Waiting on Mutex.
+--- PID: 8126: ToBProcess: Passed Mutex.
+--- PID: 8126: ToBProcess: It's my turn -- Going to Cross.
+	 Shared Variables status at PID 8126: XingCount = 1, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 1
+--- PID: 8126: ToBProcess: Signaling MUTEX.
+@@@ PID: 8126: ToBProcess: I am crossing the rope!.
+@@@ PID: 8126: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8126: ToBProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8126: XingCount = 1, XedCount = 1, toBWaitCount = 0, toAWaitCount = 0, Dir = 1
+@@@ PID: 8126: ToBProcess: Signaling Mutex.
+
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+*** PID: 8132: I am a Baboon crossing to B!
+--- PID: 8132: ToBProcess: Waiting on Mutex.
+--- PID: 8132: ToBProcess: Passed Mutex.
+--- PID: 8132: ToBProcess: It's my turn -- Going to Cross.
+	 Shared Variables status at PID 8132: XingCount = 2, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 1
+--- PID: 8132: ToBProcess: Signaling MUTEX.
+@@@ PID: 8132: ToBProcess: I am crossing the rope!.
+@@@ PID: 8132: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8132: ToBProcess: Passed MUTEX!.
+@@@ PID: 8132: ToBProcess: Setting XingDirection to None -- no one is waiting.
+	 Shared Variables status at PID 8132: XingCount = 0, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 0
+@@@ PID: 8132: ToBProcess: Signaling Mutex.
+
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+*** PID: 8133: I am a Baboon crossing to A!
+--- PID: 8133: ToAProcess: Waiting on Mutex.
+--- PID: 8133: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8133: XingCount = 0, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 0
+--- PID: 8133: ToAProcess: It's my turn -- Going to Cross.
+	 Shared Variables status at PID 8133: XingCount = 1, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 2
+--- PID: 8133: ToAProcess: Signaling MUTEX.
+@@@ PID: 8133: ToAProcess: I am crossing the rope!.
+@@@ PID: 8133: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8133: ToAProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8133: XingCount = 1, XedCount = 1, toBWaitCount = 3, toAWaitCount = 0, Dir = 2
+@@@ PID: 8133: ToAProcess: Signaling Mutex.
+
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+*** PID: 8128: I am a Baboon crossing to A!
+--- PID: 8128: ToAProcess: Waiting on Mutex.
+--- PID: 8128: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8128: XingCount = 1, XedCount = 0, toBWaitCount = 3, toAWaitCount = 0, Dir = 2
+--- PID: 8128: ToAProcess: It's my turn -- Going to Cross.
+	 Shared Variables status at PID 8128: XingCount = 2, XedCount = 0, toBWaitCount = 3, toAWaitCount = 0, Dir = 2
+--- PID: 8128: ToAProcess: Signaling MUTEX.
+@@@ PID: 8128: ToAProcess: I am crossing the rope!.
+@@@ PID: 8128: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8128: ToAProcess: Passed MUTEX!.
+@@@ PID: 8128: ToAProcess: Changing direction to DirToB.
+	 Shared Variables status at PID 8128: XingCount = 0, XedCount = 0, toBWaitCount = 6, toAWaitCount = 0, Dir = 1
+@@@ PID: 8128: ToAProcess: Signaling a waiting ToBProcess.
+
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+*** PID: 8125: I am a Baboon crossing to B!
+--- PID: 8125: ToBProcess: Waiting on Mutex.
+--- PID: 8125: ToBProcess: Passed Mutex.
+--- PID: 8125: ToBProcess: I have to wait.
+	 Shared Variables status at PID 8125: XingCount = 1, XedCount = 0, toBWaitCount = 1, toAWaitCount = 0, Dir = 2
+--- PID: 8125: ToBProcess: Signaling Mutex.
+--- PID: 8125: ToBProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8125: XingCount = 1, XedCount = 0, toBWaitCount = 5, toAWaitCount = 0, Dir = 1
+--- PID: 8125: ToBProcess: Signaling another Baboon crossing to B behind me.
+--- PID: 8125: ToBProcess: Going to cross.
+@@@ PID: 8125: ToBProcess: I am crossing the rope!.
+@@@ PID: 8125: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8125: ToBProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8125: XingCount = 3, XedCount = 1, toBWaitCount = 2, toAWaitCount = 7, Dir = 1
+@@@ PID: 8125: ToBProcess: Signaling a waiting baboon wanting to cross to B process!.
+
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+*** PID: 8124: I am a Baboon crossing to B!
+--- PID: 8124: ToBProcess: Waiting on Mutex.
+--- PID: 8124: ToBProcess: Passed Mutex.
+--- PID: 8124: ToBProcess: I have to wait.
+	 Shared Variables status at PID 8124: XingCount = 1, XedCount = 0, toBWaitCount = 2, toAWaitCount = 0, Dir = 2
+--- PID: 8124: ToBProcess: Signaling Mutex.
+--- PID: 8124: ToBProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8124: XingCount = 2, XedCount = 0, toBWaitCount = 4, toAWaitCount = 0, Dir = 1
+--- PID: 8124: ToBProcess: Signaling another Baboon crossing to B behind me.
+--- PID: 8124: ToBProcess: Going to cross.
+@@@ PID: 8124: ToBProcess: I am crossing the rope!.
+@@@ PID: 8124: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8124: ToBProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8124: XingCount = 3, XedCount = 2, toBWaitCount = 3, toAWaitCount = 9, Dir = 1
+@@@ PID: 8124: ToBProcess: Signaling a waiting baboon wanting to cross to B process!.
+
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+*** PID: 8127: I am a Baboon crossing to B!
+--- PID: 8127: ToBProcess: Waiting on Mutex.
+--- PID: 8127: ToBProcess: Passed Mutex.
+--- PID: 8127: ToBProcess: I have to wait.
+	 Shared Variables status at PID 8127: XingCount = 1, XedCount = 0, toBWaitCount = 3, toAWaitCount = 0, Dir = 2
+--- PID: 8127: ToBProcess: Signaling Mutex.
+--- PID: 8127: ToBProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8127: XingCount = 3, XedCount = 0, toBWaitCount = 3, toAWaitCount = 0, Dir = 1
+--- PID: 8127: ToBProcess: Signaling another Baboon crossing to B behind me.
+--- PID: 8127: ToBProcess: Going to cross.
+@@@ PID: 8127: ToBProcess: I am crossing the rope!.
+@@@ PID: 8127: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8127: ToBProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8127: XingCount = 3, XedCount = 3, toBWaitCount = 2, toAWaitCount = 9, Dir = 1
+@@@ PID: 8127: ToBProcess: Signaling a waiting baboon wanting to cross to B process!.
+
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+*** PID: 8134: I am a Baboon crossing to B!
+--- PID: 8134: ToBProcess: Waiting on Mutex.
+--- PID: 8134: ToBProcess: Passed Mutex.
+--- PID: 8134: ToBProcess: I have to wait.
+	 Shared Variables status at PID 8134: XingCount = 1, XedCount = 1, toBWaitCount = 4, toAWaitCount = 0, Dir = 2
+--- PID: 8134: ToBProcess: Signaling Mutex.
+--- PID: 8134: ToBProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8134: XingCount = 4, XedCount = 0, toBWaitCount = 2, toAWaitCount = 0, Dir = 1
+--- PID: 8134: ToBProcess: Going to cross.
+	 Shared Variables status at PID 8134: XingCount = 4, XedCount = 0, toBWaitCount = 2, toAWaitCount = 0, Dir = 1
+--- PID: 8134: ToBProcess: Signaling MUTEX.
+@@@ PID: 8134: ToBProcess: I am crossing the rope!.
+@@@ PID: 8134: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8134: ToBProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8134: XingCount = 3, XedCount = 4, toBWaitCount = 1, toAWaitCount = 9, Dir = 1
+@@@ PID: 8134: ToBProcess: Signaling a waiting baboon wanting to cross to B process!.
+
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+*** PID: 8135: I am a Baboon crossing to B!
+--- PID: 8135: ToBProcess: Waiting on Mutex.
+--- PID: 8135: ToBProcess: Passed Mutex.
+--- PID: 8135: ToBProcess: I have to wait.
+	 Shared Variables status at PID 8135: XingCount = 1, XedCount = 1, toBWaitCount = 5, toAWaitCount = 0, Dir = 2
+--- PID: 8135: ToBProcess: Signaling Mutex.
+--- PID: 8135: ToBProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8135: XingCount = 4, XedCount = 1, toBWaitCount = 1, toAWaitCount = 7, Dir = 1
+--- PID: 8135: ToBProcess: Going to cross.
+	 Shared Variables status at PID 8135: XingCount = 4, XedCount = 1, toBWaitCount = 1, toAWaitCount = 7, Dir = 1
+--- PID: 8135: ToBProcess: Signaling MUTEX.
+@@@ PID: 8135: ToBProcess: I am crossing the rope!.
+@@@ PID: 8135: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8135: ToBProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8135: XingCount = 3, XedCount = 5, toBWaitCount = 0, toAWaitCount = 10, Dir = 1
+@@@ PID: 8135: ToBProcess: Signaling Mutex.
+
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+*** PID: 8136: I am a Baboon crossing to B!
+--- PID: 8136: ToBProcess: Waiting on Mutex.
+--- PID: 8136: ToBProcess: Passed Mutex.
+--- PID: 8136: ToBProcess: I have to wait.
+	 Shared Variables status at PID 8136: XingCount = 1, XedCount = 1, toBWaitCount = 6, toAWaitCount = 0, Dir = 2
+--- PID: 8136: ToBProcess: Signaling Mutex.
+--- PID: 8136: ToBProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8136: XingCount = 4, XedCount = 2, toBWaitCount = 2, toAWaitCount = 9, Dir = 1
+--- PID: 8136: ToBProcess: Going to cross.
+	 Shared Variables status at PID 8136: XingCount = 4, XedCount = 2, toBWaitCount = 2, toAWaitCount = 9, Dir = 1
+--- PID: 8136: ToBProcess: Signaling MUTEX.
+@@@ PID: 8136: ToBProcess: I am crossing the rope!.
+@@@ PID: 8136: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8136: ToBProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8136: XingCount = 3, XedCount = 6, toBWaitCount = 0, toAWaitCount = 11, Dir = 1
+@@@ PID: 8136: ToBProcess: Signaling Mutex.
+
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+*** PID: 8145: I am a Baboon crossing to B!
+--- PID: 8145: ToBProcess: Waiting on Mutex.
+--- PID: 8145: ToBProcess: Passed Mutex.
+--- PID: 8145: ToBProcess: I have to wait.
+	 Shared Variables status at PID 8145: XingCount = 4, XedCount = 1, toBWaitCount = 2, toAWaitCount = 8, Dir = 1
+--- PID: 8145: ToBProcess: Signaling Mutex.
+--- PID: 8145: ToBProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8145: XingCount = 4, XedCount = 3, toBWaitCount = 1, toAWaitCount = 9, Dir = 1
+--- PID: 8145: ToBProcess: Going to cross.
+	 Shared Variables status at PID 8145: XingCount = 4, XedCount = 3, toBWaitCount = 1, toAWaitCount = 9, Dir = 1
+--- PID: 8145: ToBProcess: Signaling MUTEX.
+@@@ PID: 8145: ToBProcess: I am crossing the rope!.
+@@@ PID: 8145: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8145: ToBProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8145: XingCount = 2, XedCount = 7, toBWaitCount = 0, toAWaitCount = 11, Dir = 1
+@@@ PID: 8145: ToBProcess: Signaling Mutex.
+
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+*** PID: 8146: I am a Baboon crossing to B!
+--- PID: 8146: ToBProcess: Waiting on Mutex.
+--- PID: 8146: ToBProcess: Passed Mutex.
+--- PID: 8146: ToBProcess: I have to wait.
+	 Shared Variables status at PID 8146: XingCount = 4, XedCount = 1, toBWaitCount = 3, toAWaitCount = 8, Dir = 1
+--- PID: 8146: ToBProcess: Signaling Mutex.
+--- PID: 8146: ToBProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8146: XingCount = 4, XedCount = 4, toBWaitCount = 0, toAWaitCount = 9, Dir = 1
+--- PID: 8146: ToBProcess: Going to cross.
+	 Shared Variables status at PID 8146: XingCount = 4, XedCount = 4, toBWaitCount = 0, toAWaitCount = 9, Dir = 1
+--- PID: 8146: ToBProcess: Signaling MUTEX.
+@@@ PID: 8146: ToBProcess: I am crossing the rope!.
+@@@ PID: 8146: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8146: ToBProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8146: XingCount = 1, XedCount = 8, toBWaitCount = 0, toAWaitCount = 11, Dir = 1
+@@@ PID: 8146: ToBProcess: Signaling Mutex.
+
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+*** PID: 8123: I am a Baboon crossing to B!
+--- PID: 8123: ToBProcess: Waiting on Mutex.
+--- PID: 8123: ToBProcess: Passed Mutex.
+--- PID: 8123: ToBProcess: It's my turn -- Going to Cross.
+	 Shared Variables status at PID 8123: XingCount = 4, XedCount = 5, toBWaitCount = 0, toAWaitCount = 10, Dir = 1
+--- PID: 8123: ToBProcess: Signaling MUTEX.
+@@@ PID: 8123: ToBProcess: I am crossing the rope!.
+@@@ PID: 8123: ToBProcess: Crossed the rope -- Waiting for MUTEX!.
+@@@ PID: 8123: ToBProcess: Passed MUTEX!.
+@@@ PID: 8123: ToBProcess: Changing direction to DirToA and signaling a waiting ToAProcess baboon.
+	 Shared Variables status at PID 8123: XingCount = 0, XedCount = 0, toBWaitCount = 0, toAWaitCount = 11, Dir = 2
+
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+*** PID: 8137: I am a Baboon crossing to A!
+--- PID: 8137: ToAProcess: Waiting on Mutex.
+--- PID: 8137: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8137: XingCount = 4, XedCount = 0, toBWaitCount = 2, toAWaitCount = 0, Dir = 1
+--- PID: 8137: ToAProcess: I have to wait.
+	 Shared Variables status at PID 8137: XingCount = 4, XedCount = 0, toBWaitCount = 2, toAWaitCount = 1, Dir = 1
+--- PID: 8137: ToAProcess: Signaling Mutex.
+--- PID: 8137: ToAProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8137: XingCount = 1, XedCount = 0, toBWaitCount = 0, toAWaitCount = 10, Dir = 2
+--- PID: 8137: ToAProcess: Going to cross.
+--- PID: 8137: ToAProcess: Signalling a ToAProcess behind me.
+@@@ PID: 8137: ToAProcess: I am crossing the rope!.
+@@@ PID: 8137: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8137: ToAProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8137: XingCount = 3, XedCount = 1, toBWaitCount = 0, toAWaitCount = 7, Dir = 2
+@@@ PID: 8137: ToAProcess: Signaling a waiting ToAProcess!.
+
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+*** PID: 8138: I am a Baboon crossing to A!
+--- PID: 8138: ToAProcess: Waiting on Mutex.
+--- PID: 8138: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8138: XingCount = 4, XedCount = 0, toBWaitCount = 2, toAWaitCount = 1, Dir = 1
+--- PID: 8138: ToAProcess: I have to wait.
+	 Shared Variables status at PID 8138: XingCount = 4, XedCount = 0, toBWaitCount = 2, toAWaitCount = 2, Dir = 1
+--- PID: 8138: ToAProcess: Signaling Mutex.
+--- PID: 8138: ToAProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8138: XingCount = 2, XedCount = 0, toBWaitCount = 0, toAWaitCount = 9, Dir = 2
+--- PID: 8138: ToAProcess: Going to cross.
+--- PID: 8138: ToAProcess: Signalling a ToAProcess behind me.
+@@@ PID: 8138: ToAProcess: I am crossing the rope!.
+@@@ PID: 8138: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8138: ToAProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8138: XingCount = 3, XedCount = 2, toBWaitCount = 0, toAWaitCount = 6, Dir = 2
+@@@ PID: 8138: ToAProcess: Signaling a waiting ToAProcess!.
+
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+*** PID: 8139: I am a Baboon crossing to A!
+--- PID: 8139: ToAProcess: Waiting on Mutex.
+--- PID: 8139: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8139: XingCount = 4, XedCount = 0, toBWaitCount = 2, toAWaitCount = 2, Dir = 1
+--- PID: 8139: ToAProcess: I have to wait.
+	 Shared Variables status at PID 8139: XingCount = 4, XedCount = 0, toBWaitCount = 2, toAWaitCount = 3, Dir = 1
+--- PID: 8139: ToAProcess: Signaling Mutex.
+--- PID: 8139: ToAProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8139: XingCount = 3, XedCount = 0, toBWaitCount = 0, toAWaitCount = 8, Dir = 2
+--- PID: 8139: ToAProcess: Going to cross.
+--- PID: 8139: ToAProcess: Signalling a ToAProcess behind me.
+@@@ PID: 8139: ToAProcess: I am crossing the rope!.
+@@@ PID: 8139: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8139: ToAProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8139: XingCount = 3, XedCount = 3, toBWaitCount = 0, toAWaitCount = 5, Dir = 2
+@@@ PID: 8139: ToAProcess: Signaling a waiting ToAProcess!.
+
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+*** PID: 8140: I am a Baboon crossing to A!
+--- PID: 8140: ToAProcess: Waiting on Mutex.
+--- PID: 8140: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8140: XingCount = 4, XedCount = 0, toBWaitCount = 2, toAWaitCount = 3, Dir = 1
+--- PID: 8140: ToAProcess: I have to wait.
+	 Shared Variables status at PID 8140: XingCount = 4, XedCount = 0, toBWaitCount = 2, toAWaitCount = 4, Dir = 1
+--- PID: 8140: ToAProcess: Signaling Mutex.
+--- PID: 8140: ToAProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8140: XingCount = 4, XedCount = 0, toBWaitCount = 0, toAWaitCount = 7, Dir = 2
+--- PID: 8140: ToAProcess: Going to cross.
+	 Shared Variables status at PID 8140: XingCount = 4, XedCount = 0, toBWaitCount = 0, toAWaitCount = 7, Dir = 2
+--- PID: 8140: ToAProcess: Signaling MUTEX.
+@@@ PID: 8140: ToAProcess: I am crossing the rope!.
+@@@ PID: 8140: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8140: ToAProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8140: XingCount = 3, XedCount = 4, toBWaitCount = 0, toAWaitCount = 4, Dir = 2
+@@@ PID: 8140: ToAProcess: Signaling a waiting ToAProcess!.
+
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+*** PID: 8141: I am a Baboon crossing to A!
+--- PID: 8141: ToAProcess: Waiting on Mutex.
+--- PID: 8141: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8141: XingCount = 4, XedCount = 0, toBWaitCount = 2, toAWaitCount = 4, Dir = 1
+--- PID: 8141: ToAProcess: I have to wait.
+	 Shared Variables status at PID 8141: XingCount = 4, XedCount = 0, toBWaitCount = 2, toAWaitCount = 5, Dir = 1
+--- PID: 8141: ToAProcess: Signaling Mutex.
+--- PID: 8141: ToAProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8141: XingCount = 4, XedCount = 1, toBWaitCount = 0, toAWaitCount = 6, Dir = 2
+--- PID: 8141: ToAProcess: Going to cross.
+	 Shared Variables status at PID 8141: XingCount = 4, XedCount = 1, toBWaitCount = 0, toAWaitCount = 6, Dir = 2
+--- PID: 8141: ToAProcess: Signaling MUTEX.
+@@@ PID: 8141: ToAProcess: I am crossing the rope!.
+@@@ PID: 8141: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8141: ToAProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8141: XingCount = 3, XedCount = 5, toBWaitCount = 0, toAWaitCount = 3, Dir = 2
+@@@ PID: 8141: ToAProcess: Signaling a waiting ToAProcess!.
+
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+*** PID: 8142: I am a Baboon crossing to A!
+--- PID: 8142: ToAProcess: Waiting on Mutex.
+--- PID: 8142: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8142: XingCount = 4, XedCount = 0, toBWaitCount = 2, toAWaitCount = 5, Dir = 1
+--- PID: 8142: ToAProcess: I have to wait.
+	 Shared Variables status at PID 8142: XingCount = 4, XedCount = 0, toBWaitCount = 2, toAWaitCount = 6, Dir = 1
+--- PID: 8142: ToAProcess: Signaling Mutex.
+--- PID: 8142: ToAProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8142: XingCount = 4, XedCount = 2, toBWaitCount = 0, toAWaitCount = 5, Dir = 2
+--- PID: 8142: ToAProcess: Going to cross.
+	 Shared Variables status at PID 8142: XingCount = 4, XedCount = 2, toBWaitCount = 0, toAWaitCount = 5, Dir = 2
+--- PID: 8142: ToAProcess: Signaling MUTEX.
+@@@ PID: 8142: ToAProcess: I am crossing the rope!.
+@@@ PID: 8142: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8142: ToAProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8142: XingCount = 3, XedCount = 6, toBWaitCount = 0, toAWaitCount = 2, Dir = 2
+@@@ PID: 8142: ToAProcess: Signaling a waiting ToAProcess!.
+
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+*** PID: 8143: I am a Baboon crossing to A!
+--- PID: 8143: ToAProcess: Waiting on Mutex.
+--- PID: 8143: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8143: XingCount = 4, XedCount = 0, toBWaitCount = 2, toAWaitCount = 6, Dir = 1
+--- PID: 8143: ToAProcess: I have to wait.
+	 Shared Variables status at PID 8143: XingCount = 4, XedCount = 0, toBWaitCount = 2, toAWaitCount = 7, Dir = 1
+--- PID: 8143: ToAProcess: Signaling Mutex.
+--- PID: 8143: ToAProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8143: XingCount = 4, XedCount = 3, toBWaitCount = 0, toAWaitCount = 4, Dir = 2
+--- PID: 8143: ToAProcess: Going to cross.
+	 Shared Variables status at PID 8143: XingCount = 4, XedCount = 3, toBWaitCount = 0, toAWaitCount = 4, Dir = 2
+--- PID: 8143: ToAProcess: Signaling MUTEX.
+@@@ PID: 8143: ToAProcess: I am crossing the rope!.
+@@@ PID: 8143: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8143: ToAProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8143: XingCount = 3, XedCount = 7, toBWaitCount = 0, toAWaitCount = 1, Dir = 2
+@@@ PID: 8143: ToAProcess: Signaling a waiting ToAProcess!.
+
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+*** PID: 8144: I am a Baboon crossing to A!
+--- PID: 8144: ToAProcess: Waiting on Mutex.
+--- PID: 8144: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8144: XingCount = 4, XedCount = 1, toBWaitCount = 1, toAWaitCount = 7, Dir = 1
+--- PID: 8144: ToAProcess: I have to wait.
+	 Shared Variables status at PID 8144: XingCount = 4, XedCount = 1, toBWaitCount = 1, toAWaitCount = 8, Dir = 1
+--- PID: 8144: ToAProcess: Signaling Mutex.
+--- PID: 8144: ToAProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8144: XingCount = 4, XedCount = 4, toBWaitCount = 0, toAWaitCount = 3, Dir = 2
+--- PID: 8144: ToAProcess: Going to cross.
+	 Shared Variables status at PID 8144: XingCount = 4, XedCount = 4, toBWaitCount = 0, toAWaitCount = 3, Dir = 2
+--- PID: 8144: ToAProcess: Signaling MUTEX.
+@@@ PID: 8144: ToAProcess: I am crossing the rope!.
+@@@ PID: 8144: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8144: ToAProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8144: XingCount = 3, XedCount = 8, toBWaitCount = 0, toAWaitCount = 0, Dir = 2
+@@@ PID: 8144: ToAProcess: Signaling Mutex.
+
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+*** PID: 8147: I am a Baboon crossing to A!
+--- PID: 8147: ToAProcess: Waiting on Mutex.
+--- PID: 8147: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8147: XingCount = 4, XedCount = 1, toBWaitCount = 3, toAWaitCount = 8, Dir = 1
+--- PID: 8147: ToAProcess: I have to wait.
+	 Shared Variables status at PID 8147: XingCount = 4, XedCount = 1, toBWaitCount = 3, toAWaitCount = 9, Dir = 1
+--- PID: 8147: ToAProcess: Signaling Mutex.
+--- PID: 8147: ToAProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8147: XingCount = 4, XedCount = 5, toBWaitCount = 0, toAWaitCount = 2, Dir = 2
+--- PID: 8147: ToAProcess: Going to cross.
+	 Shared Variables status at PID 8147: XingCount = 4, XedCount = 5, toBWaitCount = 0, toAWaitCount = 2, Dir = 2
+--- PID: 8147: ToAProcess: Signaling MUTEX.
+@@@ PID: 8147: ToAProcess: I am crossing the rope!.
+@@@ PID: 8147: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8147: ToAProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8147: XingCount = 2, XedCount = 9, toBWaitCount = 0, toAWaitCount = 0, Dir = 2
+@@@ PID: 8147: ToAProcess: Signaling Mutex.
+
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+*** PID: 8122: I am a Baboon crossing to A!
+--- PID: 8122: ToAProcess: Waiting on Mutex.
+--- PID: 8122: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8122: XingCount = 4, XedCount = 4, toBWaitCount = 0, toAWaitCount = 9, Dir = 1
+--- PID: 8122: ToAProcess: I have to wait.
+	 Shared Variables status at PID 8122: XingCount = 4, XedCount = 4, toBWaitCount = 0, toAWaitCount = 10, Dir = 1
+--- PID: 8122: ToAProcess: Signaling Mutex.
+--- PID: 8122: ToAProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8122: XingCount = 4, XedCount = 6, toBWaitCount = 0, toAWaitCount = 1, Dir = 2
+--- PID: 8122: ToAProcess: Going to cross.
+	 Shared Variables status at PID 8122: XingCount = 4, XedCount = 6, toBWaitCount = 0, toAWaitCount = 1, Dir = 2
+--- PID: 8122: ToAProcess: Signaling MUTEX.
+@@@ PID: 8122: ToAProcess: I am crossing the rope!.
+@@@ PID: 8122: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8122: ToAProcess: Passed MUTEX!.
+	 Shared Variables status at PID 8122: XingCount = 1, XedCount = 10, toBWaitCount = 0, toAWaitCount = 0, Dir = 2
+@@@ PID: 8122: ToAProcess: Signaling Mutex.
+
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+*** PID: 8121: I am a Baboon crossing to A!
+--- PID: 8121: ToAProcess: Waiting on Mutex.
+--- PID: 8121: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8121: XingCount = 4, XedCount = 5, toBWaitCount = 0, toAWaitCount = 10, Dir = 1
+--- PID: 8121: ToAProcess: I have to wait.
+	 Shared Variables status at PID 8121: XingCount = 4, XedCount = 5, toBWaitCount = 0, toAWaitCount = 11, Dir = 1
+--- PID: 8121: ToAProcess: Signaling Mutex.
+--- PID: 8121: ToAProcess: Was waiting, now I'm signaled.
+	 Shared Variables status at PID 8121: XingCount = 4, XedCount = 7, toBWaitCount = 0, toAWaitCount = 0, Dir = 2
+--- PID: 8121: ToAProcess: Going to cross.
+	 Shared Variables status at PID 8121: XingCount = 4, XedCount = 7, toBWaitCount = 0, toAWaitCount = 0, Dir = 2
+--- PID: 8121: ToAProcess: Signaling MUTEX.
+@@@ PID: 8121: ToAProcess: I am crossing the rope!.
+@@@ PID: 8121: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8121: ToAProcess: Passed MUTEX!.
+@@@ PID: 8121: ToAProcess: Setting XingDirection to None -- no one is waiting.
+	 Shared Variables status at PID 8121: XingCount = 0, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 0
+@@@ PID: 8121: ToAProcess: Signaling Mutex.
+
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+*** PID: 8120: I am a Baboon crossing to A!
+--- PID: 8120: ToAProcess: Waiting on Mutex.
+--- PID: 8120: ToAProcess: Passed Mutex.
+	 Shared Variables status at PID 8120: XingCount = 0, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 0
+--- PID: 8120: ToAProcess: It's my turn -- Going to Cross.
+	 Shared Variables status at PID 8120: XingCount = 1, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 2
+--- PID: 8120: ToAProcess: Signaling MUTEX.
+@@@ PID: 8120: ToAProcess: I am crossing the rope!.
+@@@ PID: 8120: ToAProcess: Crossed -- Waiting for MUTEX!.
+@@@ PID: 8120: ToAProcess: Passed MUTEX!.
+@@@ PID: 8120: ToAProcess: Setting XingDirection to None -- no one is waiting.
+	 Shared Variables status at PID 8120: XingCount = 0, XedCount = 0, toBWaitCount = 0, toAWaitCount = 0, Dir = 0
+@@@ PID: 8120: ToAProcess: Signaling Mutex.
+
+*** PID: 8119: I have been called with the following argument: `aaabbbbbaaabbabbbaaaaaaaabba`.
+Baboons have crossed without killing eachother. Great Success!

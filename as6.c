@@ -84,8 +84,8 @@ void debug_print_shared(struct shared_variable_struct *shared);
 int main(int argc, char *argv[]) {
 	// For reference, give the user our PID
 	printf("*** Hello World! I am %d.\n", getpid());
-
-	// The input of the executable file is of the for aabbbbaaaaabbababaa (not case-sensitive) where a is a baboon crossing to a and b is a baboon crossing to b
+    // This input method was directly taken and modified from George Hodulik - gmh73@case.edu and adapted to baboon crossing problem
+	// The input of the executable file is of the format aabbbbaaaaabbababaa (not case-sensitive) where a is a baboon crossing to a and b is a baboon crossing to b
 	if (argc != 2) {
 		printf("!!! PID: %d: Please run this program with one argument, the order of the baboons crossing to a or b that you want to cross the rope.\n", getpid());
 		exit(EXIT_FAILURE);
@@ -142,7 +142,7 @@ int main(int argc, char *argv[]) {
 				break;
 
 		}
-		//Stall between each baboon creation (stall length is a bit less than the time it takes to cross the bridge)
+		//Stall between each baboon creation (stall length is a bit less than the time it takes to cross the rope)
 		stall(BABOON_CREATE_STALL_TIME);
 		i++;
 
@@ -381,7 +381,7 @@ void toAProcess(void) {
 	}
 
 	printf("@@@ PID: %d: ToAProcess: I am crossing the rope!.\n", getpid());
-	//It takes some time to cross the bridge
+	//It takes some time to cross the rope
 	stall(CROSS_ROPE_STALL_TIME);
 
 	//Everything here and below is the same as the solution to assignment 2
@@ -438,6 +438,7 @@ void stall(int iterations){
 }
 // The following comments and code are replicated from
 // the original submission by George Hodulik - gmh73@case.edu
+// System V Semaphores implementation is identical to previous use-case
 
 // These two functions are wrapper functions for the System-V
 // style semaphores that were talked about in class.
